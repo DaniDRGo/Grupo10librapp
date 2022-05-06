@@ -49,3 +49,4 @@ Se buscará tener segmentos infantiles, juveniles, de crítica, políticos , gat
 ___
 
 ### Integrantes
+Daniel, tecnico de laboratorio, argentino y con las ganas de trabar.
