@@ -49,6 +49,8 @@ Se buscará tener segmentos infantiles, juveniles, de crítica, políticos , gat
 ___
 
 ### Integrantes
-Daniel, tecnico de laboratorio, argentino y con las ganas de trabajar.
+**Daniel**, tecnico de laboratorio, argentino y con las ganas de trabajar.
 
-Daniela Videla: Intento de estudiante, intento de empleada. A la grande le puse Cuca.
+**Daniela Videla**: Intento de estudiante, intento de empleada. A la grande le puse Cuca.
+
+**Jorge Cortés** Colombiano, siempre listo para apredender e innovar. :computer:
