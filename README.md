@@ -54,3 +54,5 @@ ___
 **Daniela Videla**: Intento de estudiante, intento de empleada. A la grande le puse Cuca.
 
 **Jorge Cortés** Colombiano, siempre listo para apredender e innovar. :computer:
+
+**Franco Clavijo** 20 años recien cumplidos, futuro analista de sistemas, actualmente estudiando y entusiasta de lo que deparará el futuro
