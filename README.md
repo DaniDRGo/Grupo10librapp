@@ -41,7 +41,7 @@ ___
 ___
 ### Público Objetivo
 
-Como premisa se tiene pensada la aplicación para que todo público pueda acceder a ella, por deficnición la lectura es una puesta al conocimiento, para cocer y descubrir. 
+Como premisa se tiene pensada la aplicación para que todo público pueda acceder a ella, por definición la lectura es una puesta al conocimiento, para conocer y descubrir. 
 
 La edad promedio para adentranse en la lectura es de **6 años**, así, nuestro público puede ser muy chico, o tener una edad mayor, contando en que pueda disfrutar y gozar de buena salud visual. Es por eso que se definirán las diferentes categorías según el perfil para poder acceder a ellos, garantizando que las lecturas puedas ser acordes a su madurez y punto de vista crítico.
 
@@ -50,3 +50,4 @@ ___
 
 ### Integrantes
 Daniel, tecnico de laboratorio, argentino y con las ganas de trabajar.
+Daniela Videla: Intento de estudiante, intento de empleada. A la grande le puse Cuca.
