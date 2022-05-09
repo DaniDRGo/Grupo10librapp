@@ -50,4 +50,5 @@ ___
 
 ### Integrantes
 Daniel, tecnico de laboratorio, argentino y con las ganas de trabajar.
+
 Daniela Videla: Intento de estudiante, intento de empleada. A la grande le puse Cuca.
