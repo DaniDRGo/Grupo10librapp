@@ -56,3 +56,10 @@ ___
 **Jorge Cortés** Colombiano, siempre listo para apredender e innovar. :computer:
 
 **Franco Clavijo** 20 años recien cumplidos, futuro analista de sistemas, actualmente estudiando y entusiasta de lo que deparará el futuro
+____
+____
+### Tablero de Control para el Proyecto
+
+Para este proyecto se decidió trabajar con Trello, para así, administrar las actividades a realizar, hacer seguimiento sobre las tareas y definir las prioridades del proyecto.
+
+El espacio de trabajo se puede ver aquí: [Trello Grupo 10](https://trello.com/b/W7DUFQwz/libreria)
