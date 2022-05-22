@@ -4,7 +4,7 @@ const app = express();
 const path = require("path");
 
 const port = 5010;
-app.use(express.static('/public'))
+app.use(express.static(path.join(__dirname,'./public')))
 
 //Rutas del Servidor
 app.get("/", (req, res) => {
