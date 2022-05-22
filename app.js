@@ -11,11 +11,11 @@ app.get("/", (req, res) => {
 });
 
 app.get("/register", (req, res) => {
-  res.send("Página de Register"); // Cambiar por el .html correspondiente
+  res.sendFile(path.join(__dirname, '/views/register.html')); // Cambiar por el .html correspondiente
 });
 
 app.get("/login", (req, res) => {
-  res.send("Página de Login"); // Cambiar por el .html correspondiente
+  res.sendFile(path.join(__dirname, '/views/login.html')); // Cambiar por el .html correspondiente
 });
 
 app.get("/shopping-cart", (req, res) => {
