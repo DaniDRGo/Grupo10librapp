@@ -1,0 +1,18 @@
+/* COLORES */
+/* 
+Fuentes: #000
+Color Primario: #764AF1
+Color Secundario: #9DC1CE
+Color Primario light: #AC9EFF
+Color Secundario ligth: #9DC1CE
+*/
+
+/* NORMALIZANDO LO ESTILOS */
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+}
