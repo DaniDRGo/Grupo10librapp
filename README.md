@@ -1,6 +1,6 @@
 # Librapp
 
-- ### Descripción del Proyecto
+### Descripción del Proyecto
 
 
 **Librapp** es una aplicación pensada y diseñada para los amantes de la lectura.
