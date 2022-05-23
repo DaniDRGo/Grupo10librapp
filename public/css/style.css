@@ -48,7 +48,23 @@ Etilos Generales
 }
 
 /* 
-Etilos del HOME
+Estilos del HEADER
+*/
+
+header{
+  background-color: #c0aef1;
+}
+
+/* 
+Estilos del Footer 
+*/
+
+footer{
+  background-color: #f5ceaa;
+}
+
+/* 
+Etilos del HOME (main)
 */
 
 /* 
@@ -79,5 +95,5 @@ Estilos del carrito de Compras
 /* ########################################################################################################## */
 
 /* 
-BREAKPOINTS ( para trabajar el Responsive
+BREAKPOINTS ( para trabajar el Responsive)
 */
