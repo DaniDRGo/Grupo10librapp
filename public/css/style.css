@@ -75,7 +75,20 @@ Estilos del Formulario de Registro
 /* 
 Estilos del Formulario de Login
 */
-
+header{
+  width: 2rem;
+}
+.dl13{
+  max-width: 1px;
+}
+main{
+  background-color:#9dc1ce ;
+  text-align: center;
+  text-decoration: underline;
+  font-size: 100%;
+  padding: 3rem 0rem;
+  
+}
 /* 
 Estilos del carrito de Compras
 */
