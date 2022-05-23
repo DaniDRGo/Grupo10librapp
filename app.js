@@ -10,7 +10,7 @@ app.use(express.static('public'))
 
 //Rutas del Servidor
 app.get("/", (req, res) => {
-  res.send("Página de Home"); // Cambiar por el .html correspondiente
+  res.sendFile(path.join(__dirname, '/views/index.html')); // Cambiar por el .html correspondiente
 });
 
 app.get("/register", (req, res) => {
@@ -22,7 +22,7 @@ app.get("/login", (req, res) => {
 });
 
 app.get("/shopping-cart", (req, res) => {
-  res.send("Página de Carito de Compras"); // Cambiar por el .html correspondiente
+  res.sendFile(path.join(__dirname, '/views/productCart.html')); // Cambiar por el .html correspondiente
 });
 
 // Levantando el servidor
