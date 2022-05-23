@@ -11,68 +11,60 @@ Color Secundario ligth: #9DC1CE
 Etilos Generales
 */
 
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    text-decoration: none;
-    list-style: none;
-    font-family: 'Inter', sans-serif;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+  font-family: "Inter", sans-serif;
 }
 
-.primary-button, .secondary-button, .primary-ligth-button, .secondary-ligth-button {
-    width: 100%;
-    color: white; 
-    text-align: center;
-    padding: 10px;
-    border-radius: 8px;
+.primary-button,
+.secondary-button,
+.primary-ligth-button,
+.secondary-ligth-button {
+  width: 100%;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  border-radius: 8px;
 }
 
-.primary-button{
-    background-color: #764AF1;
+.primary-button {
+  background-color: #764af1;
 }
 
-.secondary-button{
-    background-color: #FF8514;
+.secondary-button {
+  background-color: #ff8514;
 }
 
-.primary-ligth-button{
-    background-color: #AC9EFF;
+.primary-ligth-button {
+  background-color: #ac9eff;
 }
 
-.secondary-ligth-button{
-    background-color: #9DC1CE;
+.secondary-ligth-button {
+  background-color: #9dc1ce;
 }
 
 /* 
 Etilos del HOME
 */
 
-
-
-
 /* 
 Estilos del Formulario de Registro
 */
-
-
 
 /* 
 Estilos del Formulario de Login
 */
 
-
 /* 
 Estilos del carrito de Compras
 */
-
-
-
 
 /* ########################################################################################################## */
 
 /* 
 BREAKPOINTS ( para trabajar el Responsive
 */
-
-
