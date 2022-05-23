@@ -2,7 +2,7 @@
 /* 
 Fuentes: #000
 Color Primario: #764AF1
-Color Secundario: #9DC1CE
+Color Secundario: #FF8514
 Color Primario light: #AC9EFF
 Color Secundario ligth: #9DC1CE
 */
@@ -17,6 +17,31 @@ Etilos Generales
     box-sizing: border-box;
     text-decoration: none;
     list-style: none;
+    font-family: 'Inter', sans-serif;
+}
+
+.primary-button, .secondary-button, .primary-ligth-button, .secondary-ligth-button {
+    width: 100%;
+    color: white; 
+    text-align: center;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.primary-button{
+    background-color: #764AF1;
+}
+
+.secondary-button{
+    background-color: #FF8514;
+}
+
+.primary-ligth-button{
+    background-color: #AC9EFF;
+}
+
+.secondary-ligth-button{
+    background-color: #9DC1CE;
 }
 
 /* 
