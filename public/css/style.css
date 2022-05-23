@@ -7,7 +7,9 @@ Color Primario light: #AC9EFF
 Color Secundario ligth: #9DC1CE
 */
 
-/* NORMALIZANDO LO ESTILOS */
+/* NORMALIZANDO LO ESTILOS 
+Etilos Generales
+*/
 
 *{
     margin: 0;
@@ -16,3 +18,36 @@ Color Secundario ligth: #9DC1CE
     text-decoration: none;
     list-style: none;
 }
+
+/* 
+Etilos del HOME
+*/
+
+
+
+
+/* 
+Estilos del Formulario de Registro
+*/
+
+
+
+/* 
+Estilos del Formulario de Login
+*/
+
+
+/* 
+Estilos del carrito de Compras
+*/
+
+
+
+
+/* ########################################################################################################## */
+
+/* 
+BREAKPOINTS ( para trabajar el Responsive
+*/
+
+
