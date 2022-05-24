@@ -61,7 +61,7 @@ Estilos del Footer
 */
 
 footer{
-  background-color: #f5ceaa;
+  background-color:#FF8514;
 }
 
 /* 
@@ -82,7 +82,7 @@ header{
   max-width: 1px;
 }
 main{
-  background-color:#9dc1ce ;
+  background-color:#FF8514 ;
   text-align: center;
   text-decoration: underline;
   font-size: 100%;
