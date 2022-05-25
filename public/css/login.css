@@ -1,0 +1,97 @@
+/* paleta de colores*/
+
+:root{
+   color:#AC9EEF (--lila);
+   color:#764AF1 (--violeta);
+   color: #9DC1CE (--celeste);
+   color: #ff8514 (--naranja);
+
+}
+/*******************************************/
+/*main*/
+
+main{
+   border: #9DC1CE 2px solid;
+   padding: 1rem;
+}
+
+main section h1 {
+width: 70%;
+font-weight: bold;
+border: #764AF1 15px solid;
+background-color: #AC9EEF;
+text-align: center;
+margin: auto;
+animation-name: seccion;
+animation-duration: 5s;
+animation-iteration-count: infinite;
+animation-direction: alternate;
+}
+@keyframes seccion {
+   0%{
+      border: #764AF1 15px solid;
+      background-color: #AC9EEF;
+   }
+   25%{
+      border: #AC9EEF 15px solid;
+      background-color:#764AF1;
+      color: white;
+   }
+   75%{
+      border: #764AF1 15px solid;
+      background-color: #AC9EEF;
+   }
+   100%{
+      border: #AC9EEF 15px solid;
+      background-color:#764AF1;
+      color: white;
+   }
+}
+
+.ingreso-datos{
+   line-height: 3rem;   
+   width: 13rem;
+   display: block;
+   margin: auto;
+   font-size: 1rem;
+   
+}
+.ingresos2{
+   width: 13rem;
+   display: block;
+   margin: auto;
+   font-size: 1rem;
+   text-align: center;
+   line-height: 3rem;
+   transition: all 450ms;
+}
+.ingresos2 a{
+   color: #9DC1CE;
+}
+.ingresos2 a:hover{
+   color: #ff8514;
+}
+.ingresos2:hover{
+      font-size: 1.5rem;
+}
+
+main section i{
+   color: #764AF1;
+   }
+.boton{
+   background-color: #9DC1CE;
+   font-size: 1rem;
+   padding: 0.5rem;
+   transition: all 450ms;
+   }
+   .boton:hover{
+      background-color: #ff8514;
+      border-radius: 20%;
+   }
+/*footer*/
+
+.footeritem{
+   background-color: #ff8514;
+   padding: 2%;
+   line-height: 1.5rem;     
+}
