@@ -9,42 +9,123 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
         <!--Etilos Generales -->
-        <link rel="stylesheet" href="/css/productDetail.css">
+        <link rel="stylesheet" href="/css/productCart.css">
         <title>LibrApp</title>
     </head>
     <body>
         <header>
-            <div class="logo">
-                <img src="https://via.placeholder.com/300x150" alt="logo librApp">
+            <div class="menu">
+                <div class="logo">
+                    <img src="/img/Librapp logo whitepng322x145.png" alt="logo librApp">
+                </div>
+                
+                <nav class="navbar">
+                    <ul>
+                        <li><a href="/">HOME</a></li>
+                        <li><a href="/register">REGISTRO</a></li>
+                        <li><a href="/login">LOGIN</a></li>
+                        <li>MI CUENTA</li>
+                        <li id="contacto">CONTACTO</li>
+                    </ul>
+                </nav>
+
             </div>
-            <nav class="navbar">
-                <ul>
-                    <li>Item 1</li>
-                    <li>Item 2</li>
-                    <li>Item 3</li>
-                    <li>Item 4</li>
-                    <li>Item 5</li>
-                </ul>
-            </nav>
-            <div class="search-engine">
-                <form action="" method="">
-                    <input type="text">
-                    <input type="button" value="Buscar">
-                </form>
-            </div>
-            <div class="shopping-cart-access">
-                <p>#</p>
-                <p>Productos</p>
-                <p>AR$</p>
-                <p>total</p>
-                <div class="icon-shopping-cart">
-                    <a href="#">icono</a>
+            <div class="menu-buscador">
+                <div class="search-engine">
+                    <form action="" method="">
+                        <input type="text">
+                        <input type="button" value="Buscar">
+                    </form>
+                </div>
+                <div class="shopping-cart-access">
+                    <p>#</p>
+                    <p>Productos</p>
+                    <p>AR$</p>
+                    <p>total</p>
+                    <div class="icon-shopping-cart">
+                        <a href="shopping-cart"><img src="/img/shoppingcarticon.png"></a> <!--FALTA IMAGEN CARRITO-->
+                    </div>
                 </div>
             </div>
         </header>
 
         <main>
-            <p>CARRITO DE COMPRAS</p>
+            <div class="products">
+                <div class="barra-color"></div>
+                <div class="infoProduct">
+                    <div class="imagen-product">
+                        <img src="img/imagenPrueba2.jpg">
+                    </div>
+                    <div class="description-product">
+                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Suscipit maiores impedit voluptatibus, quisquam facere quo eius accus</p>
+                    </div>
+                    <div class="cantidad-product">
+                        <input type="button" value="-">
+                        <input type="text">
+                        <input type="button" value="+">
+                    </div>
+                    <div class="subtotal-product">
+                        <p>AR$ 1.000</p>
+                    </div>
+                </div>
+            </div>
+            <div class="products">
+                <div class="barra-color"></div>
+                <div class="infoProduct">
+                    <div class="imagen-product">
+                        <img src="img/imagenPrueba2.jpg">
+                    </div>
+                    <div class="description-product">
+                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Suscipit maiores impedit voluptatibus, quisquam facere quo eius accus</p>
+                    </div>
+                    <div class="cantidad-product">
+                        <input type="button" value="-">
+                        <input type="text">
+                        <input type="button" value="+">
+                    </div>
+                    <div class="subtotal-product">
+                        <p>AR$ 1.000</p>
+                    </div>
+                </div>
+            </div>
+            <div class="products">
+                <div class="barra-color"></div>
+                <div class="infoProduct">
+                    <div class="imagen-product">
+                        <img src="img/imagenPrueba2.jpg">
+                    </div>
+                    <div class="description-product">
+                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Suscipit maiores impedit voluptatibus, quisquam facere quo eius accus</p>
+                    </div>
+                    <div class="cantidad-product">
+                        <input type="button" value="-">
+                        <input type="text">
+                        <input type="button" value="+">
+                    </div>
+                    <div class="subtotal-product">
+                        <p>AR$ 1.000</p>
+                    </div>
+                </div>
+            </div>
+            <div class="products">
+                <div class="barra-color"></div>
+                <div class="infoProduct">
+                    <div class="imagen-product">
+                        <img src="img/imagenPrueba2.jpg">
+                    </div>
+                    <div class="description-product">
+                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Suscipit maiores impedit voluptatibus, quisquam facere quo eius accus</p>
+                    </div>
+                    <div class="cantidad-product">
+                        <input type="button" value="-">
+                        <input type="text">
+                        <input type="button" value="+">
+                    </div>
+                    <div class="subtotal-product">
+                        <p>AR$ 1.000</p>
+                    </div>
+                </div>
+            </div>
         </main>
         <footer>
             <p>Pie de Página</p>
