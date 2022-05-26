@@ -16,6 +16,7 @@ a {
 header {
     display:flex;
     flex-direction: column;
+    /*background-color: #FF8514;*/
     
 }
 
@@ -40,6 +41,7 @@ header {
 
 .navbar ul {
     display: flex;
+    flex-direction: row;
 }
 
 .navbar ul li {
@@ -47,13 +49,15 @@ header {
     padding: 0 8px ;
     border: 1px solid black;
     height: 31px;
-    width: 120px;
-    line-height: 31px;
+    width: 100%;
+    line-height: 15px;
     text-align: center;
+    margin: auto;
 }
 
 .logo {
     width: 40%;
+    border: red 2px solid;
 }
 
 #contacto {
@@ -61,7 +65,9 @@ header {
 }
 
 .search-engine {
-    width: 80%;
+    width: 100%;
+    display: inline;
+    text-align: right;
 }
 .shopping-cart-access{
     width: 20%;
@@ -74,7 +80,7 @@ header {
 }
 
 form input[type="text"]{
-    width: 80%;
+    width: 65%;
     height: 25px;
 }
 
@@ -82,9 +88,71 @@ form input[type="button"]{
     height: 30px;
     background-color: var(--NARANJA);
     padding: 0 30px;
+    ;
 }
 
 /* Fin de los estilos del Header */
+/**main**/
+main{
+padding: 1rem;
+}
+h3{
+    text-decoration: underline;
+}
+main section h1 {
+    width: 70%;
+    font-weight: bold;
+    border: #764AF1 15px solid;
+    background-color: #AC9EEF;
+    text-align: center;
+    margin: auto;
+    animation-name: seccion;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    }
+    @keyframes seccion {
+       0%{
+          border: #764AF1 15px solid;
+          background-color: #AC9EEF;
+       }
+       25%{
+          border: #AC9EEF 15px solid;
+          background-color:#764AF1;
+          color: white;
+       }
+       75%{
+          border: #764AF1 15px solid;
+          background-color: #AC9EEF;
+       }
+       100%{
+          border: #AC9EEF 15px solid;
+          background-color:#764AF1;
+          color: white;
+       }
+    }
+
+
+.ingresos2{
+    width: 11rem;
+    display: block;
+    margin: auto;
+    font-size: 1rem;
+    text-align: center;
+    line-height: 1.5rem;
+    transition: all 450ms;
+   }
+   section input{
+    text-align: center;
+    display: block;
+    margin: auto;
+ }
+
+ .boton:hover{
+    background-color: #ff8514;
+    border-radius: 20%;
+ }
+
 /*footer*/
 
 .footeritem{
@@ -93,3 +161,4 @@ form input[type="button"]{
     line-height: 1.5rem;
     text-align: left;     
  }
+/*media queri*/
