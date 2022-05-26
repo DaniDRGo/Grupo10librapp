@@ -85,3 +85,11 @@ form input[type="button"]{
 }
 
 /* Fin de los estilos del Header */
+/*footer*/
+
+.footeritem{
+    background-color: #ff8514;
+    padding: 2%;
+    line-height: 1.5rem;
+    text-align: left;     
+ }
