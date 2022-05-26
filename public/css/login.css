@@ -113,7 +113,7 @@ main section i{
    }
    .ingreso-datos{
       line-height: 3.5rem;   
-      width: 21rem;     
+      width: 22rem;     
       font-size: 2.1rem;      
 }
 section input{
@@ -121,7 +121,7 @@ font-size: 1.2rem; ;
 }
 .ingresos2{
    font-size: 2rem;
-   width: 20rem;
+   width: 21rem;
    line-height: 6rem;
   }
 .footeritem{
@@ -133,8 +133,11 @@ font-size: 1.2rem; ;
 .boton{
    font-size: 1.5rem;
 }
-
+}
 
 @media(min-width: 769px){
-
+   main section h1 {
+      width: 30%;
+      font-size: 2rem;
+   }
 }
