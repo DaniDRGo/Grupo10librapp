@@ -25,6 +25,10 @@ app.get("/shopping-cart", (req, res) => {
   res.sendFile(path.join(__dirname, '/views/productCart.html')); // Cambiar por el .html correspondiente
 });
 
+app.get("/productDetail", (req, res) => {
+  res.sendFile(path.join(__dirname, '/views/productDetail.html')); // Cambiar por el .html correspondiente
+});
+
 // Levantando el servidor
 app.listen(port, () => {
   console.log(`Server on Port ${port}`);
