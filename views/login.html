@@ -9,8 +9,9 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
         <!--Etilos Generales -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
         <link rel="stylesheet" href="/css/login.css">
-        <title>LibrApp</title>
+        <title>LibrApp/login</title>
     </head>
     <body>
         <header>
@@ -44,16 +45,34 @@
         </header>
 
         <main>
+            <section>
+                <h1>Ingresa a tu cuenta</h1>
+            </section>
+            <section class="ingreso-datos">
             <form action="/login" method="post">
-                <p><input type="email" name = "email" placeholder="mail"></p>
-                <br>
-                <p><input type="password" name="clave" placeholder="Clave"></p>
-                <br>
+                <p><i class="fa-solid fa-at"></i><input type="email" placeholder="Mail"></p>
+                
+                <p><i class="fa-solid fa-key"></i><input type="password" name="Clave" placeholder="Clave" ali></p>
+                
             </form>
-            <a href="" alt="recupero de contrasenia">Olvide contrasenia</a>
+            </section>
+            <section class="ingresos2">        
+            <a href="" alt="recupero de contrasenia">Olvide la contraseña<i class="fa-solid fa-face-surprise"></i></a>
+            <article>
+            <button type="button" name="submit" class="boton">ACEPTAR</button>
+            <button type="button" name="reject" class="boton">CANCELAR</button>
+        </article>         
+        </section>
         </main>
         <footer>
-            <p>Pie de Página</p>
+            <Section class="footeritem">
+                <ul type="none">
+                    <li>Librapp</li>
+                    <li>Terminos y condiciones</li>
+                    <li>Contacto</li>
+                    <li>©CopyRight</li>
+                </ul>
+            </Section>
         </footer>
     </body>
 </html>
