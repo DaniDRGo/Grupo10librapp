@@ -54,8 +54,10 @@ animation-direction: alternate;
    display: block;
    margin: auto;
    font-size: 1rem;
-   
-}
+   }
+   section input{
+      text-align: center;
+   }
 .ingresos2{
    width: 13rem;
    display: block;
@@ -93,5 +95,37 @@ main section i{
 .footeritem{
    background-color: #ff8514;
    padding: 2%;
-   line-height: 1.5rem;     
+   line-height: 1.5rem;
+   text-align: left;     
+}
+/*media*/
+
+@media(min-width: 481px ){
+   main{
+      border: #9DC1CE 4px solid ;
+      padding: 4rem;
+   }
+   
+   main section h1 {
+      width: 60%;
+      font-size: 2rem;
+   }
+   .ingreso-datos{
+      line-height: 3rem;   
+      width: 18rem;     
+      font-size: 2rem;
+      border: red 2px solid;      
+}
+section input{
+font-size: 1.2rem; ;
+}
+.ingresos2{
+   font-size: 2rem;
+   width: 20rem;
+   line-height: 6rem;
+   border: red 2px solid;
+}
+}
+@media(min-width: 769px){
+
 }
