@@ -14,8 +14,12 @@ a {
 }
 
 header {
+    width: 100%;
     display:flex;
     flex-direction: column;
+    position: relative;
+    border: red 2px solid;
+    padding: 1rem;
     /*background-color: #FF8514;*/
     
 }
@@ -55,9 +59,10 @@ header {
     margin: auto;
 }
 
-.logo {
-    width: 40%;
+.logo img {
+    width: 50%;
     border: red 2px solid;
+    
 }
 
 #contacto {
