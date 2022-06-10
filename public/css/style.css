@@ -19,6 +19,12 @@
   list-style: none;
 }
 
+body{
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
 a:visited{
   color:black
 }
