@@ -1,0 +1,87 @@
+.footer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-top: auto;
+  background-color: var(--fuerte);
+}
+
+.footer-info{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 36px;
+}
+
+.footer-title{
+  padding: 10px 10px 30px 10px;
+}
+
+.redesSociales, .creadores{
+  width: 80%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.redPeronal, .creador{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 25%;
+}
+
+.icono-redPersonal{
+  font-size: 2rem;
+  margin-bottom: 5px;
+}
+
+.redPersonal-nombre, .creador-nombre{
+  text-align: center;
+  font-size: 0.75rem;
+}
+
+.creador-img{
+  margin-bottom: 5px;
+  border-radius: 50%;
+}
+
+@media (min-width: 481px) {
+
+  .footer {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .footer-info:nth-child(1){
+    width: 50%;
+  }
+  .footer-info:nth-child(2){
+    width: 50%;
+  }
+  .footer-info:nth-child(3){
+    width: 100%;
+    margin: 0;
+  }
+
+  .icono-redPersonal{
+    height: 50px;
+    line-height: 50px;
+  }
+
+}
+
+@media (min-width: 881px) {
+
+  .redesSociales, .creadores{
+    gap: 10px;
+    justify-content: space-around;
+  }
+
+  .redPeronal, .creador{
+    width: 20%;
+  }
+
+}

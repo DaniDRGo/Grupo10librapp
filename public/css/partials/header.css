@@ -208,41 +208,5 @@
 
   .navbar-lista {
     background-color: transparent;
-  }
-
-  /* .header-contenedor {
-    flex-direction: row;
-    align-items: center;
-  }
-
-  .header-logo {
-    width: 60%;
-    padding: 10px 0;
-  } 
-
-  .logo-image {
-    width: 60%;
-  }
-
-  .form-text {
-    height: 35px;
-  }
-
-  .header-buscador {
-    align-self: flex-end ;
-  }
-
-  .buscador-form {
-    padding: 15px 15px 10px 15px;
-  }
-
-  .menu-hamburguesa {
-    display: none;
-  }
-
-  .navbar {
-    display: flex;
-  }
-
- */
+  }  
 }
