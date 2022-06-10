@@ -10,44 +10,11 @@
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
         <!--Etilos Generales -->
         <link rel="stylesheet" href="/css/register.css">
+        <link rel="stylesheet" href="/css/header.css">
         <title>LibrApp</title>
     </head>
     <body>
-        <header>
-            <div class="menu">
-                <div class="logo">
-                    <img src="/img/Librapp logo whitepng322x145.png" alt="logo librApp">
-                </div>
-                
-                <nav class="navbar">
-                    <ul>
-                        <li><a href="/">HOME</a></li>
-                        <li><a href="/register">REGISTRO</a></li>
-                        <li><a href="/login">LOGIN</a></li>
-                        <li>MI CUENTA</li>
-                        <li id="contacto">CONTACTO</li>
-                    </ul>
-                </nav>
-
-            </div>
-            <div class="menu-buscador">
-                <div class="search-engine">
-                    <form action="" method="">
-                        <input type="text">
-                        <input type="button" value="Buscar">
-                    </form>
-                </div>
-                <div class="shopping-cart-access">
-                    <p>#</p>
-                    <p>Productos</p>
-                    <p>AR$</p>
-                    <p>total</p>
-                    <div class="icon-shopping-cart">
-                        <a href="shopping-cart"><img src="/img/shoppingcarticon.png"></a> <!--FALTA IMAGEN CARRITO-->
-                    </div>
-                </div>
-            </div>
-        </header>
+        <%- include('./partials/header') %>
 
         <main>
             <section>
@@ -86,15 +53,6 @@
             </article>         
             </section>  
         </main>
-        <footer>
-            <Section class="footeritem">
-                <ul type="none">
-                    <li>Librapp</li>
-                    <li>Terminos y condiciones</li>
-                    <li>Contacto</li>
-                    <li>©CopyRight</li>
-                </ul>
-            </Section>
-        </footer>
+        <%- include('./partials/footer') %>
     </body>
 </html>
