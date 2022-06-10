@@ -1,101 +1,29 @@
-/* COLORES */
-/* 
-Fuentes: #000
-Color Primario: #764AF1
-Color Secundario: #FF8514
-Color Primario light: #AC9EFF
-Color Secundario ligth: #9DC1CE
-*/
+@import url('./partials/header.css');
 
-/* NORMALIZANDO LO ESTILOS 
-Etilos Generales
-*/
+:root {
+  --principal: #FF8514;
+  --secundario: #764AF1;
+  /* --ligero: #9DC1CE ; */
+  --ligero: aqua;
+  --fuerte: #AC9EFF;
+  --contraste: #ffffff;
+}
 
-* {
+*{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
   text-decoration: none;
   list-style: none;
-  font-family: "Inter", sans-serif;
 }
 
-.primary-button,
-.secondary-button,
-.primary-ligth-button,
-.secondary-ligth-button {
-  width: 100%;
-  color: white;
-  text-align: center;
-  padding: 10px;
-  border-radius: 8px;
+a:visited{
+  color:black
 }
 
-.primary-button {
-  background-color: #764af1;
+/* Este solo se usa con Javascript para controlar el menu */
+.menu-visible{  
+  display: flex;
 }
-
-.secondary-button {
-  background-color: #ff8514;
-}
-
-.primary-ligth-button {
-  background-color: #ac9eff;
-}
-
-.secondary-ligth-button {
-  background-color: #9dc1ce;
-}
-
-
-/* 
-Estilos del HEADER
-*/
-
-header{
-  background-color: #c0aef1;
-}
-
-/* 
-Estilos del Footer 
-*/
-
-footer{
-  background-color:#FF8514;
-}
-
-/* 
-Etilos del HOME (main)
-*/
-
-/* 
-Estilos del Formulario de Registro
-*/
-
-/* 
-Estilos del Formulario de Login
-*/
-header{
-  width: 2rem;
-  background-color:#FF8514; 
-}
-.dl13{
-  max-width: 1px;
-}
-main{
-  background-color:#FF8514 ;
-  text-align: center;
-  text-decoration: underline;
-  font-size: 100%;
-  padding: 3rem 0rem;
-  
-}
-/* 
-Estilos del carrito de Compras
-*/
-
-/* ########################################################################################################## */
-
-/* 
-BREAKPOINTS ( para trabajar el Responsive)
-*/
+/* +++++++++++++++++++++ */
