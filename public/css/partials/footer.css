@@ -46,7 +46,7 @@
   border-radius: 50%;
 }
 
-@media (min-width: 481px) {
+@media (min-width: 461px) {
 
   .footer {
     flex-direction: row;

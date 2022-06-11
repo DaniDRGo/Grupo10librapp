@@ -1,5 +1,7 @@
 @import url('./partials/header.css');
 @import url('./partials/footer.css');
+@import url('./partials/home.css');
+
 
 :root {
   --principal: #FF8514;

@@ -2,11 +2,53 @@
     <body>
         <%- include('./partials/header') %>
         <main>
-            <% for( let i = 0; i < 25; i++ ) { %>
-                <p>
-                    <%= i %> 
-                </p>
-            <% } %>
+            <div class="contenedor">
+                <section class="categorias">
+                    <select class="selector" name="categorias" id="categorias">
+                        <option value="all" selected>-- Selecciona Categoría</option>
+                        <option value="comedia">comedia</option>
+                        <option value="drama">drama</option>
+                        <option value="accion">acción</option>
+                        <option value="suspenso">suspenso</option>
+                        <option value="amor">amor</option>
+                        <option value="all">Todas</option>
+                    </select>
+                    <div class="menu-categorias">
+                        <ul class="lista-categorias">
+                            <li class="item-categoria">comedia</li>
+                            <li class="item-categoria">drama</li>
+                            <li class="item-categoria">acción</li>
+                            <li class="item-categoria">suspenso</li>
+                            <li class="item-categoria">amor</li>
+                        </ul>
+                    </div>
+                </section>
+                <section class="slider">
+                    <ul class="gallery">
+                        <% for( let i = 0; i < 15; i++ ) { %>
+                            <li class="slider-item"><img src="https://via.placeholder.com/120x160" alt=""></li>                        
+                        <% } %>
+                    </ul>
+                </section>
+                <section class="principal">
+                    <% for( let i = 0; i < 2; i++ ) { %>
+                        <div class="book">
+                            <div class="book-image">
+                                <img class="bookImagen" src="https://via.placeholder.com/240x300" alt="">
+                            </div>
+                            <div class="book-title">
+                                <h5>titulo del Libro</h5>
+                            </div>
+                            <div class="book-price">
+                                <p>AR$ 50.00</p>
+                            </div>
+                        </div>
+                    <% } %>
+                </section>
+                <section class="aside">
+    
+                </section>
+            </div>
         </main>
         <%- include('./partials/footer') %>
         <script src="../js/index.js"></script>

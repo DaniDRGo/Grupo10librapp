@@ -125,7 +125,7 @@
 
 /* MediaQueries */
 
-@media (min-width: 481px) {
+@media (min-width: 461px) {
 
   .header-contenedor {
     flex-direction: row;
