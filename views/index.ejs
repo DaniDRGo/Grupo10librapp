@@ -1,4 +1,5 @@
-    <%- include('./partials/head') %>
+<%- include('./partials/head') %>
+
     <body>
         <%- include('./partials/header') %>
         <main>
@@ -24,33 +25,134 @@
                     </div>
                 </section>
                 <section class="slider">
-                    <ul class="gallery">
-                        <% for( let i = 0; i < 15; i++ ) { %>
-                            <li class="slider-item"><img src="https://via.placeholder.com/120x160" alt=""></li>                        
-                        <% } %>
-                    </ul>
+                    <div class="swiper mySwiper">
+                        <div class="swiper-wrapper">
+                            <% for( let index = 0; index < 12; index++ ) { %>
+                                <div class="swiper-slide enOferta">
+                                    <div class="etiquetaDescuento">
+                                        <p>en oferta</p>
+                                    </div>
+                                    <img src="https://via.placeholder.com/240x300" alt="">
+                                </div>
+                            <% } %>
+                        </div>
+                        <div class="swiper-pagination"></div>
+                    </div>
                 </section>
                 <section class="principal">
-                    <% for( let i = 0; i < 2; i++ ) { %>
-                        <div class="book">
-                            <div class="book-image">
-                                <img class="bookImagen" src="https://via.placeholder.com/240x300" alt="">
-                            </div>
-                            <div class="book-title">
-                                <h5>titulo del Libro</h5>
-                            </div>
-                            <div class="book-price">
-                                <p>AR$ 50.00</p>
-                            </div>
+                    <h2 class="tituloPrincipal">Más Pedidos</h2>
+                    <div class="swiper mySwiper">
+                        <div class="swiper-wrapper">
+                            <% for( let index = 0; index < 10; index++ ) { %>
+                                <div class="swiper-slide card-book">
+                                    <div class="book">
+                                        <div class="book-image">
+                                            <img class="bookImagen" src="https://via.placeholder.com/240x300" alt="">
+                                        </div>
+                                        <div class="book-info">
+                                            <div class="book-title">
+                                                <h5>titulo del Libro</h5>
+                                            </div>
+                                            <div class="book-price">
+                                                <p>AR$ 50.00</p>
+                                            </div>
+                                            <div class="icon-agregar">
+                                                <i class="fas fa-heart"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            <% } %>
                         </div>
-                    <% } %>
+                        <div class="swiper-pagination"></div>
+                    </div>
                 </section>
-                <section class="aside">
-    
+                <section class="principal">
+                    <h2 class="tituloPrincipal">Lo más Nuevo</h2>
+                    <div class="swiper mySwiper">
+                        <div class="swiper-wrapper">
+                            <% for( let index = 0; index < 10; index++ ) { %>
+                                <div class="swiper-slide card-book">
+                                    <div class="book">
+                                        <div class="book-image">
+                                            <img class="bookImagen" src="https://via.placeholder.com/240x300" alt="">
+                                        </div>
+                                        <div class="book-info">
+                                            <div class="book-title">
+                                                <h5>titulo del Libro</h5>
+                                            </div>
+                                            <div class="book-price">
+                                                <p>AR$ 50.00</p>
+                                            </div>
+                                            <div class="icon-agregar">
+                                                <i class="fas fa-heart"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            <% } %>
+                        </div>
+                        <div class="swiper-pagination"></div>
+                    </div>
+                </section>
+                <section class="principal">
+                    <h2 class="tituloPrincipal">Todos</h2>
+                    <div class="swiper mySwiper">
+                        <div class="swiper-wrapper">
+                            <% for( let index = 0; index < 20; index++ ) { %>
+                                <div class="swiper-slide card-book">
+                                    <div class="book">
+                                        <div class="book-image">
+                                            <img class="bookImagen" src="https://via.placeholder.com/240x300" alt="">
+                                        </div>
+                                        <div class="book-info">
+                                            <div class="book-title">
+                                                <h5>titulo del Libro</h5>
+                                            </div>
+                                            <div class="book-price">
+                                                <p>AR$ 50.00</p>
+                                            </div>
+                                            <div class="icon-agregar">
+                                                <i class="fas fa-heart"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            <% } %>
+                        </div>
+                        <div class="swiper-pagination"></div>
+                    </div>
                 </section>
             </div>
         </main>
         <%- include('./partials/footer') %>
         <script src="../js/index.js"></script>
+        <!-- Swiper JS -->
+        <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+        <!-- Initialize Swiper -->
+        <script>
+            var swiper = new Swiper(".mySwiper", {
+                slidesPerView: 1,
+                spaceBetween: 10,
+                pagination: {
+                    el: ".swiper-pagination",
+                    clickable: true,
+                },
+                breakpoints: {
+                    640: {
+                        slidesPerView: 2,
+                        spaceBetween: 20,
+                    },
+                    768: {
+                        slidesPerView: 4,
+                        spaceBetween: 40,
+                    },
+                    1024: {
+                        slidesPerView: 5,
+                        spaceBetween: 50,
+                    },
+                },
+            });
+        </script>
     </body>
 </html>

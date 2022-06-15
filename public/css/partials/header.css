@@ -4,6 +4,7 @@
   background-color: var(--principal);
   position: sticky;
   top: 0;
+  z-index: 100;
 }
 
 .header-contenedor {
@@ -23,7 +24,7 @@
 }
 
 .logo-image {
-  width: 80%;
+  width: 50%;
 }
 
 .header-buscador {
