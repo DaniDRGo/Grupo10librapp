@@ -1,105 +1,39 @@
-@import url('./partials/header.css');
-@import url('./partials/footer.css');
-@import url('./partials/home.css');
-
+@import url("./partials/header.css");
+@import url("./partials/footer.css");
+@import url("./partials/home.css");
 
 :root {
-  --principal: #FF8514;
-  --secundario: #764AF1;
+  --principal: #ff8514;
+  --secundario: #764af1;
   /* --ligero: #9DC1CE ; */
   --ligero: aqua;
-  --fuerte: #AC9EFF;
+  --fuerte: #ac9eff;
   --contraste: #ffffff;
 }
 
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   text-decoration: none;
   list-style: none;
 }
 
-body{
+body {
   display: flex;
   flex-direction: column;
+  width: 100%;
   min-height: 100vh;
-  /* position: relative;
-  height: 100% */
 }
 
-a:visited{
-  color:black
+a:visited {
+  color: black;
 }
 
 /* Este solo se usa con Javascript para controlar el menu */
-.menu-visible{  
+.menu-visible {
   display: flex;
 }
 /* +++++++++++++++++++++ */
 
-/* Slider */
-
-.swiper {
-  width: 100%;
-  height: 100%;
-}
-
-.swiper-slide {
-  text-align: center;
-  font-size: 18px;
-  background: #fff;
-
-  /* Center slide text vertically */
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: -webkit-flex;
-  display: flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  -webkit-justify-content: center;
-  justify-content: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  -webkit-align-items: center;
-  align-items: center;
-}
-
-.swiper-slide img {
-  display: block;
-  width: 90%;
-  height: 90%;
-  object-fit: cover;
-}
-
-
-.enOferta{
-  position: relative;
-}
-
-.etiquetaDescuento{
-  position: absolute;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: red;
-  top: 0;
-  left: 22px;
-  width: 100px;
-  height: 100px;
-  /* padding: 50px; */
-  clip-path: polygon(50% 0 ,100% 0, 0 100%, 0 50%);
-}
-
-.etiquetaDescuento p{
-  transform: rotateZ(-45deg);
-  position: relative;
-  bottom: 13px;
-  left: -11px;
-  text-transform: uppercase;
-  color: #ffffff;
-  font-size: 0.75rem;
-}
-
-/* Fin Slider */
