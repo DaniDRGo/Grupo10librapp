@@ -2,39 +2,51 @@
 <body>
     <%- include('./partials/header') %>
     <!-- DATOS DEL LIBRO-->
-    <div class ="titulo"> 
-    <img src="https://via.placeholder.com/190x295" alt="FOTO LIBRO">
-    <h2> NOMBRE DEL LIBRO </h2>
-    <ul><li>AUTOR: NOMBRE APELLIDO</li>
-        <li>EDITORIAL: NOMBRE EDITORIAL</li>
-        <li>AR$ XXXX</li>
-        <li>DESCRIPCIÓN DEL LIBRO</li>
-        <li><p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quia vero obcaecati perferendis consequuntur sunt vitae 
-        enim soluta dignissimos optio autem at maiores reiciendis quam libero quo, praesentium aut, asperiores similique?</p></li>
-    </ul>
-    </div>
-
-    <div class ="titulo"> 
-    <h2>>DETALLES DEL LIBRO </h2>
-    <ul>
-        <li>NÚMERO DE PÁGINAS: XXXX</li>
-        <li>PESO: XXX GRS</li>
-        <li>FORMATO: XXXX</li>
-        <li>EDICIÓN: AAAAA</li>
-        <li>IDIOMA: XXXX</li>
-    </ul>
-    </div>    
-    <div class ="titulo">
-    <h2>>RESEÑAS</h2>
-    <h3>Comentarios sobre el libro</h3>
-    <p>Todavía nadie dejó ninguna reseña.</p>
-    </div>
-
-    <!-- BARRA DE NOVEDADES-->
-
-    <!-- RECOMENDACIONES-->
-    
-
+    <main class="productDetail">
+        <div class ="productDetail-image"> 
+            <img src="https://via.placeholder.com/190x295" alt="FOTO LIBRO">
+        </div>
+        <div class="productDetail-contenedor">
+            <div class="productDetail-mainInfo">
+                <h2> NOMBRE DEL LIBRO </h2>
+                <p><span>AUTOR:</span> NOMBRE APELLIDO</p>
+                <p><span>EDITORIAL:</span> NOMBRE EDITORIAL</p>
+                <p><span>AR$</span> XXXX</p>
+            </div>
+            <div class="productDetail-mainInfo">
+                <h3>DESCRIPCIÓN DEL LIBRO</h3>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quia vero obcaecati perferendis consequuntur sunt vitae 
+                enim soluta dignissimos optio autem at maiores reiciendis quam libero quo, praesentium aut, asperiores similique?</p>
+            </div>
+            <div class="productDetail-mainInfo">
+                <h2>DETALLES DEL LIBRO </h2>
+                <p><span>NÚMERO DE PÁGINAS:</span>  XXXX</p>
+                <p><span>PESO:</span>  XXX GRS</p>
+                <p><span>FORMATO:</span>  XXXX</p>
+                <p><span>EDICIÓN:</span>  AAAAA</p>
+                <p><span>IDIOMA:</span>  XXXX</p>
+            </div>
+            <div class="productDetail-mainInfo">
+                <h2>RESEÑAS</h2>
+                <h3>Comentarios sobre el libro</h3>
+                <p>Todavía nadie dejó ninguna reseña.</p>
+                <div class="comentario">
+                    <p>comentario de usuario</p>
+                </div>
+            </div>      
+        </div>
+        <div class="productDetail-interaccion">
+            <div class="interaccion-cantidad">
+                <button>-</button>
+                <input type="text">
+                <button>+</button>
+            </div>
+            <button class="interaccion-boton"><a href="#">Agregar al Carrito<i class="fas fa-shopping-basket icon-interaccion"></i></a></button>
+            <div class="interaccion-link">
+                <a href="/productCart">Ir al Carrito<i class="fas fa-shopping-basket icon-interaccion"></i></a>
+            </div>
+        </div>
+    </main>
 
     <%- include('./partials/footer') %>
     <script src="../js/index.js"></script>

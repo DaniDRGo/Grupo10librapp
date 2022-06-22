@@ -1,0 +1,151 @@
+.productDetail {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  width: 90%;
+}
+
+.productDetail-image {
+  width: 100%;
+  padding: 10px 0;
+  display: flex;
+  justify-content: center;
+	align-items: center;
+}
+
+.productDetail-image img {
+  width: 100%;
+  height: 560px;
+}
+
+.productDetail-mainInfo,
+.productDetail-mainInfo h2 {
+  margin-bottom: 15px;
+}
+
+.productDetail-interaccion{
+	margin-bottom: 20px;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10%;
+	justify-content: center;
+	align-items: center;
+}
+
+.interaccion-cantidad{
+	width: 30%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.interaccion-cantidad button{
+	width: 30%;
+	margin: 0 10px;
+}
+
+.interaccion-cantidad input[type="text"]{
+	width: 40%;
+}
+
+
+.interaccion-boton{
+	width: 60%;
+	height: 50px;
+	padding: 15px;
+	text-align: center;
+	border-radius: 10px;
+	border: transparent;
+}
+
+.icon-interaccion{
+	margin-left: 10px;
+}
+
+.interaccion-link{
+	width: 100%;
+	padding: 24px;
+	display: flex;
+	justify-content: flex-end;
+	margin-right: 37px;
+}
+
+
+@media (min-width: 461px) {
+  .productDetail {
+		flex-direction: row;
+		width: 100%;
+		flex-wrap: wrap;
+	}
+	.productDetail-image {
+		width: 50%;
+		padding: 10px 10px;
+	}
+	.productDetail-contenedor{
+		width: 50%;
+		padding: 10px 20px 10px 10px;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-around;
+	}
+	.productDetail-interaccion{
+		width: 50%;
+		margin-left: auto;
+		margin-right: 15px;
+	}
+}
+
+@media (min-width: 881px) {
+
+	.productDetail-image {
+		width: 30%;
+	}
+
+	.productDetail-image img {
+		width: 80%;
+		height: 400px;
+	}
+
+	.productDetail-contenedor{
+		width: 70%;
+		flex-direction: row;
+		flex-wrap: wrap;
+	}
+	.productDetail-mainInfo{
+		width: 50%;
+		padding: 10px;
+	}
+
+	.productDetail-mainInfo:nth-last-child(1){
+		order: 4;
+		width: 100%;
+	}
+
+	.productDetail-mainInfo:nth-last-child(2){
+		order: 2;
+	}
+
+	.productDetail-mainInfo:nth-last-child(3){
+		order: 3;
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	}
+
+	.productDetail-mainInfo:nth-last-child(4){
+		order: 1;
+	}
+
+	.productDetail-interaccion{
+		width: 70%;
+	}
+
+	.interaccion-link{
+		margin-right: 200px;
+	}
+}
+
+@media (min-width: 1024px) {  
+
+}
