@@ -1,27 +1,38 @@
 <%- include('./partials/head') %>
     <body>
         <%- include('./partials/header') %>
-
-        <main>
-            <section>
-                <h1>Ingresa a tu cuenta</h1>
-            </section>
-            <section class="ingreso-datos">
-            <form action="/login" method="post">
-                <p><i class="fa-solid fa-at"></i><input type="email" placeholder="Mail"></p>
-                
-                <p><i class="fa-solid fa-key"></i><input type="password" name="Clave" placeholder="Clave" ali></p>
-                
-            </form>
-            </section>
-            <section class="ingresos2">
-            <p>RECUERDAME<input type="checkbox" name="recuerdame"></p>        
-            <a href="" alt="recupero de contrasenia">Olvide la contraseña<i class="fa-solid fa-face-surprise"></i></a>
-            <article>
-            <button type="button" name="submit" class="boton">ACEPTAR</button>
-            <button type="button" name="reject" class="boton">CANCELAR</button>
-        </article>         
-        </section>
+        <main class="formulario-registro">
+            <div class="login-form">
+                <form action="/" method="post" class="form">
+                    <div class="input">
+                        <h3 class="subtitulo-registro">Ingresa tus datos</h3>
+                    </div>
+                    <div class="input">
+                        <!-- <label for="nickname">Nombre de Usuario</label> -->
+                        <input type="text" name="nickname" id="nickname" placeholder="Usuario" required>
+                    </div>
+                    <div class="input">
+                        <!-- <label for="password">Contraseña</label> -->
+                        <input type="password" name="password" id="password" placeholder="Contraseña" required>
+                    </div>
+                    <div class="form-confirm">
+                        <div class="input">
+                            <div class="categories-check">
+                                <input type="checkbox" name="tc" value="accept" checked>
+                                <label for="tc">Recordar datos</label>
+                            </div>
+                        </div>
+                        <div class="input">
+                            <div class="categories-check">
+                                <a href="">Olvide mi contraseña</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input botones loginSend">
+                        <input type="submit" name="Enviar">
+                    </div>
+                </form>
+            </div>
         </main>
         <%- include('./partials/footer') %>
         <script src="../js/index.js"></script>

@@ -1,0 +1,154 @@
+.formulario-registro {
+  background-color: var(--fuerte-secundario);
+}
+
+.register-form,
+.login-form {
+  width: 60%;
+  min-width: 360px;
+  margin: 0 auto;
+  padding: 20px 0;
+}
+
+.form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.input {
+  padding: 10px;
+  width: 100%;
+}
+
+.titulo-registro {
+  text-align: center;
+  padding: 15px;
+}
+
+.input input[type="text"],
+.input input[type="email"],
+.input input[type="password"],
+.input input[type="date"],
+.input input[type="tel"] {
+  width: 100%;
+  padding: 15px;
+  border: none;
+  border-radius: 6px;
+}
+
+.input input[type="text"]:focus,
+.input input[type="email"]:focus,
+.input input[type="password"]:focus,
+.input input[type="date"]:focus {
+  outline-color: var(--secundario);
+}
+
+.date,
+.image {
+  display: flex;
+  flex-direction: column;
+}
+
+.botones {
+  display: flex;
+  width: 90%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.botones input[type="submit"],
+.botones input[type="reset"] {
+  padding: 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  width: 48%;
+}
+
+.botones input[type="reset"] {
+  border: none;
+  background-color: transparent;
+  color: var(--secundario);
+}
+
+.botones input[type="submit"] {
+  border: none;
+  background-color: var(--principal);
+  color: white;
+  transition: all 700ms;
+}
+
+.input input[type="submit"]:hover {
+  background-color: var(--secundario);
+}
+
+.input input#nickname:invalid {
+  color: red;
+}
+
+.errorMessage span {
+  color: #bdbdbd;
+  padding-left: 15px;
+}
+
+.input label.form-titles {
+  font-size: 18px;
+  font-weight: 700;
+  padding-bottom: 10px;
+  display: inline-block;
+}
+
+.profile-box {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.profile-check {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.categories-check {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile-check label,
+.categories-check label {
+  padding-left: 5px;
+  padding-bottom: 5px;
+}
+
+.loginSend {
+  width: 100%;
+  justify-content: center;
+}
+
+.image input[type="file"] {
+  display: none;
+}
+
+.image label {
+  background-color: var(--principal);
+  color: white;
+  padding-top: 10px;
+  text-align: center;
+  border-radius: 6px;
+}
+
+@media (min-width: 461px) {
+}
+
+@media (min-width: 881px) {
+  .register-form,
+  .login-form {
+    width: 40%;
+  }
+}
+
+@media (min-width: 1024px) {
+}
