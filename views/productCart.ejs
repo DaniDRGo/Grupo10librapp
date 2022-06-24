@@ -3,82 +3,46 @@
         <%- include('./partials/header') %>
 
         <main>
-            <div class="products">
-                <div class="barra-color"></div>
-                <div class="infoProduct">
-                    <div class="imagen-product">
-                        <img src="img/imagenPrueba2.jpg">
+            <% for( let index = 0; index < 5; index++ ) { %>
+                <div class="product">
+                    <div class="barra-color"></div>
+                    <div class="infoProduct">
+                        <div class="imagen-product">
+                            <img src="img/imagenPrueba2.jpg">
+                        </div>
+                        <div class="description-product">
+                            <p>
+                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Suscipit maiores impedit voluptatibus, quisquam facere quo eius accus
+                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Suscipit maiores impedit voluptatibus, quisquam facere quo eius accus
+                            </p>
+                        </div>
+                        <div class="cantidad-product">
+                            <input class="cantidad-boton" type="button" value="-">
+                            <input class="cantidad-input" type="text">
+                            <input class="cantidad-boton" type="button" value="+">
+                        </div>
+                        <div class="subtotal-product">
+                            <p>AR$ <span>1.000</span></p>
+                        </div>
                     </div>
-                    <div class="description-product">
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Suscipit maiores impedit voluptatibus, quisquam facere quo eius accus</p>
-                    </div>
-                    <div class="cantidad-product">
-                        <input type="button" value="-">
-                        <input type="text">
-                        <input type="button" value="+">
-                    </div>
-                    <div class="subtotal-product">
-                        <p>AR$ 1.000</p>
-                    </div>
-                </div>
-            </div>
-            <div class="products">
-                <div class="barra-color"></div>
-                <div class="infoProduct">
-                    <div class="imagen-product">
-                        <img src="img/imagenPrueba2.jpg">
-                    </div>
-                    <div class="description-product">
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Suscipit maiores impedit voluptatibus, quisquam facere quo eius accus</p>
-                    </div>
-                    <div class="cantidad-product">
-                        <input type="button" value="-">
-                        <input type="text">
-                        <input type="button" value="+">
-                    </div>
-                    <div class="subtotal-product">
-                        <p>AR$ 1.000</p>
+                    <div class="product-delete">
+                        <i class="fas fa-trash-alt"></i>
                     </div>
                 </div>
-            </div>
-            <div class="products">
-                <div class="barra-color"></div>
-                <div class="infoProduct">
-                    <div class="imagen-product">
-                        <img src="img/imagenPrueba2.jpg">
-                    </div>
-                    <div class="description-product">
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Suscipit maiores impedit voluptatibus, quisquam facere quo eius accus</p>
-                    </div>
-                    <div class="cantidad-product">
-                        <input type="button" value="-">
-                        <input type="text">
-                        <input type="button" value="+">
-                    </div>
-                    <div class="subtotal-product">
-                        <p>AR$ 1.000</p>
+            <% } %>
+                <div class="productCart-resumen">
+                    <div class="resumen">
+                        <div class="cantidad-total">
+                            <p><span>100</span>Productos</p>
+                        </div>
+                        <div class="precio-total">
+                            <p><span>1.000</span>$AR</p>
+                        </div>
+                        <div class="boton-comprar">
+                            <input type="button" value="Comprar">
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="products">
-                <div class="barra-color"></div>
-                <div class="infoProduct">
-                    <div class="imagen-product">
-                        <img src="img/imagenPrueba2.jpg">
-                    </div>
-                    <div class="description-product">
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Suscipit maiores impedit voluptatibus, quisquam facere quo eius accus</p>
-                    </div>
-                    <div class="cantidad-product">
-                        <input type="button" value="-">
-                        <input type="text">
-                        <input type="button" value="+">
-                    </div>
-                    <div class="subtotal-product">
-                        <p>AR$ 1.000</p>
-                    </div>
-                </div>
-            </div>
         </main>
         <%- include('./partials/footer') %>
         <script src="../js/index.js"></script>

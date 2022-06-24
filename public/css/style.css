@@ -3,6 +3,7 @@
 @import url("./partials/home.css");
 @import url("./partials/productDetail.css");
 @import url("./partials/formularios.css");
+@import url("./partials/productCart.css");
 
 :root {
   --principal: #ff8514;
@@ -12,6 +13,7 @@
   --fuerte: #ac9eff;
   --fuerte-secundario: #ad9eff65;
   --contraste: #ffffff;
+  --principal-suavizado: #ff86147d;
 }
 
 * {
