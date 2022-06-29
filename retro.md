@@ -10,3 +10,19 @@
 
 ---
 ___
+
+## *Sprint 2*
+
+    Encontramos que para este sprint no tuvimo una fuerta base de comunicación para la socialización
+    y ejecución de las actividades pactadas.
+    Decidimos para este sprint como propuesta de mejora estblecer espacios más seguidos donde se pudiera
+    hacer perProgramming y así avanzar de una manera más eficiente.
+
+    Encontramos que nos es más fácil poder refinar los prototipos, puesto que estabamos tomando decisiones
+    individuales y no logamos empalmar en un inicio el estilo de la aplicación
+
+    Se determinó que trabajaríamos lunes, miércoles y viernes para poder sacar el siguiente sprint con tiempo
+    y tener espacios de mejoras
+
+---
+___
