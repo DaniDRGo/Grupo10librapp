@@ -26,3 +26,19 @@ ___
 
 ---
 ___
+
+## *Sprint 3*
+
+    En este sprint no logamos ser consecuentes con los horarios que pactamos para hacer PerProgramming
+    y aun que se determinaron las actividades para la ejecición por parte de cada uno de los colaboradores
+    decidimos condensar la información para que se concentraran en commits únicos que se trabajaron en conjunto
+    y no se logró empalmar el uso de Ramas
+
+    Determinamos que para la ejecución del sprint debiamos segmentar las actividades de Front y Back para tener un
+    alcance mayor en la resolución de las cards propuestas y así poder alcanzar el objetivo deseado.
+
+    Nos permitimos continuar con los espacios pactados en el sprint 2 ,pero no se logró tener el 100% de las
+    reuniones planeadas por diferentes actividades de cada uno de los participantes
+
+---
+___
