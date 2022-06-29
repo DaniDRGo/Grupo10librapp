@@ -49,54 +49,26 @@
                         </div>
                     <% } %>
                 </section>
+                <!--Sección de productos en mobile -->
                 <section class="principal small">
                     <h2 class="tituloPrincipal">Más Pedidos</h2>
                     <div class="swiper mySwiper">
                         <div class="swiper-wrapper">
                             <% for( let index = 0; index < 10; index++ ) { %>
                                 <div class="swiper-slide card-book">
-                                    <div class="book">
-                                        <div class="book-image">
-                                            <img class="bookImagen" src="https://via.placeholder.com/240x300" alt="">
-                                        </div>
-                                        <div class="book-info">
-                                            <div class="book-title">
-                                                <h5>titulo del Libro</h5>
-                                            </div>
-                                            <div class="book-price">
-                                                <p>AR$ 50.00</p>
-                                            </div>
-                                            <div class="icon-agregar">
-                                                <i class="fas fa-heart"></i>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <%- include('./partials/book') %>
                                 </div>
                             <% } %>
                         </div>
                         <div class="swiper-pagination"></div>
                     </div>
                 </section>
+                <!-- sección de productos en tablet y desktop -->
                 <section class="principal medium">
                     <h2 class="tituloPrincipal">Más Pedidos</h2>
                     <div class="book-container">
                         <% for( let index = 0; index < 5; index++ ) { %>
-                                <div class="book">
-                                    <div class="book-image">
-                                        <img class="bookImagen" src="https://via.placeholder.com/240x300" alt="">
-                                    </div>
-                                    <div class="book-info">
-                                        <div class="book-title">
-                                            <h5>titulo del Libro</h5>
-                                        </div>
-                                        <div class="book-price">
-                                            <p>AR$ 50.00</p>
-                                        </div>
-                                        <div class="icon-agregar">
-                                            <i class="fas fa-heart"></i>
-                                        </div>
-                                    </div>
-                                </div>
+                            <%- include('./partials/book') %>
                         <% } %>
                     </div>
                 </section>
@@ -106,22 +78,7 @@
                         <div class="swiper-wrapper">
                             <% for( let index = 0; index < 10; index++ ) { %>
                                 <div class="swiper-slide card-book">
-                                    <div class="book">
-                                        <div class="book-image">
-                                            <img class="bookImagen" src="https://via.placeholder.com/240x300" alt="">
-                                        </div>
-                                        <div class="book-info">
-                                            <div class="book-title">
-                                                <h5>titulo del Libro</h5>
-                                            </div>
-                                            <div class="book-price">
-                                                <p>AR$ 50.00</p>
-                                            </div>
-                                            <div class="icon-agregar">
-                                                <i class="fas fa-heart"></i>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <%- include('./partials/book') %>
                                 </div>
                             <% } %>
                         </div>
@@ -132,49 +89,18 @@
                     <h2 class="tituloPrincipal">Lo Más Nuevo</h2>
                     <div class="book-container">
                         <% for( let index = 0; index < 5; index++ ) { %>
-                                <div class="book">
-                                    <div class="book-image">
-                                        <img class="bookImagen" src="https://via.placeholder.com/240x300" alt="">
-                                    </div>
-                                    <div class="book-info">
-                                        <div class="book-title">
-                                            <h5>titulo del Libro</h5>
-                                        </div>
-                                        <div class="book-price">
-                                            <p>AR$ 50.00</p>
-                                        </div>
-                                        <div class="icon-agregar">
-                                            <i class="fas fa-heart"></i>
-                                        </div>
-                                    </div>
-                                </div>
+                            <%- include('./partials/book') %>
                         <% } %>
                     </div>
                 </section>
-
                 <section class="principal small">
                     <h2 class="tituloPrincipal">Todos</h2>
                     <div class="swiper mySwiper">
                         <div class="swiper-wrapper">
                             <% for( let index = 0; index < 10; index++ ) { %>
                                 <div class="swiper-slide card-book">
-                                    <div class="book">
-                                        <div class="book-image">
-                                            <img class="bookImagen" src="https://via.placeholder.com/240x300" alt="">
-                                        </div>
-                                        <div class="book-info">
-                                            <div class="book-title">
-                                                <h5>titulo del Libro</h5>
-                                            </div>
-                                            <div class="book-price">
-                                                <p>AR$ 50.00</p>
-                                            </div>
-                                            <div class="icon-agregar">
-                                                <i class="fas fa-heart"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                    <%- include('./partials/book') %>
+                                </div>    
                             <% } %>
                         </div>
                         <div class="swiper-pagination"></div>
@@ -184,34 +110,17 @@
                     <h2 class="tituloPrincipal">Todos</h2>
                     <div class="book-container">
                         <% for( let index = 0; index < 15; index++ ) { %>
-                                <div class="book">
-                                    <div class="book-image">
-                                        <img class="bookImagen" src="https://via.placeholder.com/240x300" alt="">
-                                    </div>
-                                    <div class="book-info">
-                                        <div class="book-title">
-                                            <h5>titulo del Libro</h5>
-                                        </div>
-                                        <div class="book-price">
-                                            <p>AR$ 50.00</p>
-                                        </div>
-                                        <div class="icon-agregar">
-                                            <i class="fas fa-heart"></i>
-                                        </div>
-                                    </div>
-                                </div>
+                            <%- include('./partials/book') %>
                         <% } %>
                     </div>
                 </section>
-
-
             </div>
         </main>
 
 
-
-
         <%- include('./partials/footer') %>
+
+        <!-- Slider, no Tocar! -->
         <script src="../js/index.js"></script>
         <!-- Swiper JS -->
         <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
