@@ -4,27 +4,26 @@
     <!-- DATOS DEL LIBRO-->
     <main class="productDetail">
         <div class ="productDetail-image"> 
-            <img src="https://via.placeholder.com/190x295" alt="FOTO LIBRO">
+            <img src="<%= productoBuscado.portada%>" alt="<%= productoBuscado.titulo%>">
         </div>
         <div class="productDetail-contenedor">
             <div class="productDetail-mainInfo">
-                <h2> NOMBRE DEL LIBRO </h2>
-                <p><span>AUTOR:</span> NOMBRE APELLIDO</p>
-                <p><span>EDITORIAL:</span> NOMBRE EDITORIAL</p>
-                <p><span>AR$</span> XXXX</p>
+                <h2> <%= productoBuscado.titulo%> </h2>
+                <p><span>AUTOR:</span> <%= productoBuscado.autor%></p>
+                <p><span>EDITORIAL:</span> <%= productoBuscado.editorial%></p>
+                <p><span>AR$</span> <%= productoBuscado.precio%></p>
             </div>
             <div class="productDetail-mainInfo">
                 <h3>DESCRIPCIÓN DEL LIBRO</h3>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quia vero obcaecati perferendis consequuntur sunt vitae 
-                enim soluta dignissimos optio autem at maiores reiciendis quam libero quo, praesentium aut, asperiores similique?</p>
+                <p><%= productoBuscado.descripcion%></p>
             </div>
             <div class="productDetail-mainInfo">
                 <h2>DETALLES DEL LIBRO </h2>
-                <p><span>NÚMERO DE PÁGINAS:</span>  XXXX</p>
-                <p><span>PESO:</span>  XXX GRS</p>
-                <p><span>FORMATO:</span>  XXXX</p>
-                <p><span>EDICIÓN:</span>  AAAAA</p>
-                <p><span>IDIOMA:</span>  XXXX</p>
+                <p><span>NÚMERO DE PÁGINAS:</span><%= productoBuscado.numero_paginas%></p>
+                <p><span>PESO:</span><%= productoBuscado.peso%> GRS</p>
+                <p><span>FORMATO:</span><%= productoBuscado.formato%></p>
+                <p><span>ISBN:</span><%= productoBuscado.isbn%></p>
+                <p><span>IDIOMA:</span><%= productoBuscado.idioma%></p>
             </div>
             <div class="productDetail-mainInfo">
                 <h2>RESEÑAS</h2>
