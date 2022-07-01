@@ -1,12 +1,21 @@
 var express = require('express');
 var router = express.Router();
+const fs = require('fs')
+const path = require('path')
+
+const dbproducts = path.join(__dirname, '../Database/dbproducts.json')
+
+const products = JSON.parse(fs.readFileSync(dbproducts, 'utf-8'))
+
 
 /* GET users listing. */
 router.get('/', function(req, res) {
-  res.render('products', { title: 'Express' });
+    res.render('products', { products })
 });
 router.get('/:id', function(req, res) {
-  res.render('productDetail', { title: 'Express' });
+  let id = req.params.id
+  let productoBuscado = products.find(product => product.id == id)
+  res.render('productDetail', { productoBuscado });
 });
 
 router.get('/productCart', function(req, res) {

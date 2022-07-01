@@ -3,7 +3,9 @@
         <%- include('./partials/header') %>
 
         <main>
-            <h1>Lista de productos</h1>            
+            <% products.forEach(product=>{%>
+             <a href="/products/<%= product.id%>"><p><%= product.id%><span><%= product.titulo%></span></p></a>
+            <%})%>           
         </main>
         <%- include('./partials/footer') %>
         <script src="../js/index.js"></script>
