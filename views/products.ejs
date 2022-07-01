@@ -3,8 +3,9 @@
         <%- include('./partials/header') %>
 
         <main>
+            <button><a href="/products/create">CREAR PRODUCTO</a></button>
             <% products.forEach(product=>{%>
-             <a href="/products/<%= product.id%>"><p><%= product.id%><span><%= product.titulo%></span></p></a>
+             <a href="/products/detalle/<%= product.id%>"><p><%= product.id%><span><%= product.titulo%></span></p></a>
             <%})%>           
         </main>
         <%- include('./partials/footer') %>
