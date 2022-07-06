@@ -32,7 +32,10 @@
 .input input[type="email"],
 .input input[type="password"],
 .input input[type="date"],
-.input input[type="tel"] {
+.input input[type="tel"],
+.input input[type="number"],
+textarea,
+select {
   width: 100%;
   padding: 15px;
   border: none;
@@ -42,7 +45,10 @@
 .input input[type="text"]:focus,
 .input input[type="email"]:focus,
 .input input[type="password"]:focus,
-.input input[type="date"]:focus {
+.input input[type="date"]:focus,
+.input input[type="number"]:focus,
+.input textarea:focus,
+.input select:focus {
   outline-color: var(--secundario);
 }
 

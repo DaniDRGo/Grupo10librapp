@@ -1,22 +1,19 @@
 var express = require('express');
 var router = express.Router();
-const fs = require('fs')
-const path = require('path')
 
-const dbproducts = path.join(__dirname, '../Database/dbproducts.json')
-
-const products = JSON.parse(fs.readFileSync(dbproducts, 'utf-8'))
+const productController = require('../controllers/productController')
 
 
-/* GET users listing. */
-router.get('/', function(req, res) {
-    res.render('products', { products })
-});
-router.get('/detalle/:id', function(req, res) {
-  let id = req.params.id
-  let productoBuscado = products.find(product => product.id == id)
-  res.render('productDetail', { productoBuscado });
-});
+// Renderiza todos los productos
+router.get('/', productController.getAll );
+// Renderiza el detalle de un producto
+router.get('/detalle/:id', productController.getOne);
+// Renderiza el formulario para crear un producto
+router.get('/create', productController.showForm);
+// Crea un Producto a partir del formulario cargado
+router.post('/create', productController.createBook);
+
+
 
 router.get('/productCart', function(req, res) {
     res.render('productCart', { title: 'Express' });
@@ -36,14 +33,7 @@ router.get('/productCart', function(req, res) {
         res.redirect('products', { title: 'Express' });
         });
 
-    // cambiar el verbo HTTP
-    router.get('/create', function(req, res) {
-      res.render('createProduct');
-    });
-    router.post('/create', function(req, res) {
-      /* falta la logica para cargarlo en la dbproducts.json*/
-      res.redirect('products', { title: 'Express' });
-    });
+
     
 
 module.exports = router;

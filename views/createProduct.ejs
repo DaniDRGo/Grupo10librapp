@@ -4,8 +4,69 @@
 
         <main class="formulario-registro">
             <section class="titulo-registro">
-                <h1>Crear Producto</h1>
+                <h1>Agrega un Nuevo Libro</h1>
             </section>
+            <div class="register-form">
+                <form class="form-seccion" action="/products/create" method="post">
+                    <div class="primera-seccion">
+                        <div class="input">
+                            <h3 class="subtitulo-registro">Información del Libro</h3>
+                        </div>
+                        <div class="input">
+                            <input type="text" name="titulo" id="titulo" placeholder="titulo" required>
+                        </div>
+                        <div class="input">
+                            <textarea name="descripcion" id="descripcion" cols="30" rows="10" placeholder="descripcion"></textarea>
+                        </div>
+                        <div class="input image">
+                            <label for="portada" class="form-titles">Seleccioná una Imagen de Portada</label>
+                            <input type="file" name="portada" id="portada" accept=".png, .jpg" required>
+                        </div>
+                        <div class="input">
+                            <input type="text" name="autor" id="autor" placeholder="autor" required>
+                        </div>
+                        <div class="input">
+                            <input type="text" name="isbn" id="isbn" placeholder="isbn" required>
+                        </div>
+                        <div class="input">
+                            <select name="categoria" id="categoria">
+                                <option value="general">Categoria del Libro</option>
+                                <% for( let index = 0; index < categorias.length; index++ ) { %>
+                                    <option value="<%= categorias[index]  %>" ><%= categorias[index]  %></option>
+                                <% } %>
+                            </select>
+                        </div>
+                        <div class="input">
+                            <input type="number" name="numero_paginas" id="numero_paginas" placeholder=" # Paginas" required>
+                        </div>
+                    </div>
+                    <div class="segunda-seccion">
+                        <div class="input">
+                            <select name="formato" id="formato">
+                                <option value="Male">Dirigido a:</option>
+                                <% for( let index = 0; index < formatos.length; index++ ) { %>
+                                    <option value="<%= formatos[index]  %>" ><%= formatos[index]  %></option>
+                                <% } %>
+                            </select>
+                        </div>
+                        <div class="input">
+                            <input type="number" name="precio" id="precio" placeholder=" Precio" required>
+                        </div>
+                        <div class="input">
+                            <input type="number" name="peso" id="peso" placeholder=" Peso" required>
+                        </div>
+                        <div class="input">
+                            <input type="text" name="idioma" id="idioma" placeholder="idioma" required>
+                        </div>
+                    </div>
+                    <div class="form-confirm">
+                        <div class="input botones">
+                            <input type="reset" value="Cancelar">
+                            <input type="submit" value="Crear Nuevo Libro">
+                        </div>
+                    </div>
+                </form>
+            </div>
         </main>
         <%- include('./partials/footer') %>
         <script src="../js/index.js"></script>
