@@ -4,6 +4,8 @@
 @import url("./partials/productDetail.css");
 @import url("./partials/formularios.css");
 @import url("./partials/productCart.css");
+@import url("./partials/products.css");
+
 
 :root {
   --principal: #ff8514;

@@ -5,5 +5,3 @@ menu.addEventListener("click", function () {
   console.log("click");
   navbar.classList.toggle("menu-visible");
 });
-
-

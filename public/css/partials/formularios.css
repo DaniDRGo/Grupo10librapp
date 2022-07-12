@@ -28,6 +28,7 @@
   padding: 15px;
 }
 
+
 .input input[type="text"],
 .input input[type="email"],
 .input input[type="password"],
@@ -40,6 +41,7 @@ select {
   padding: 15px;
   border: none;
   border-radius: 6px;
+  margin-top: 10px;
 }
 
 .input input[type="text"]:focus,
