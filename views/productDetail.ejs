@@ -4,7 +4,7 @@
     <!-- DATOS DEL LIBRO-->
     <main class="productDetail">
         <div class ="productDetail-image"> 
-            <img src="<%= productoBuscado.portada%>" alt="<%= productoBuscado.titulo%>">
+            <img src="../../img/productImages/<%= productoBuscado.portada ? productoBuscado.portada : 'default-image.jpg' %>" alt="<%= productoBuscado.titulo%>">
         </div>
         <div class="productDetail-contenedor">
             <div class="productDetail-mainInfo">

@@ -1,5 +1,6 @@
 const fs = require("fs");
 const path = require("path");
+const multer = require('multer');
 
 
 
@@ -39,6 +40,7 @@ const productController = {
   },  
   createBook: (req, res) => {
     let idDefinition = products.length + 1;
+    console.log(req.file)
     let {
       titulo,
       autor,
@@ -68,7 +70,8 @@ const productController = {
       idioma,
     };
 
-    console.log(newBook)
+    //Asignación del nombre de la imagen para poder guardarla en BBDD
+    newBook.portada =  req.file.filename;
 
     products.unshift(newBook);
     let productsReady = JSON.stringify(products)
