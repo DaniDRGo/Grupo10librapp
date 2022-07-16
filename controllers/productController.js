@@ -12,12 +12,12 @@ const products = JSON.parse(fs.readFileSync(dbproducts, "utf-8"));
 const productController = {
   getAll: (req, res) => {
     
-    res.render("products", { products });
+    res.render("products/products", { products });
   },
   getOne: (req, res) => {
     let id = req.params.id;
     let productoBuscado = products.find((product) => product.id == id);
-    res.render("productDetail", { productoBuscado });
+    res.render("products/productDetail", { productoBuscado });
   },
   showForm: (req, res) => {
     let allCategories = [];
@@ -36,7 +36,7 @@ const productController = {
     //Ordeno el array
     categorias = categorias.sort();
     formatos = formatos.sort();
-    res.render("createProduct", { categorias, formatos });
+    res.render("products/createProduct", { categorias, formatos });
   },  
   createBook: (req, res) => {
     let idDefinition = products.length + 1;
@@ -101,7 +101,7 @@ const productController = {
     categorias = categorias.sort();
     formatos = formatos.sort();
 
-    res.render("editProduct", { categorias, formatos, itemToEdit });
+    res.render("products/editProduct", { categorias, formatos, itemToEdit });
   },
   editBook: (req, res) => {
 

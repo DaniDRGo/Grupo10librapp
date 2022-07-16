@@ -1,0 +1,31 @@
+<%- include('../partials/head') %>
+    <body>
+        <%- include('../partials/header') %>
+
+        <main class="productsList">
+ 
+            <button class="createProduct"><a class="createProductText" href="/products/create">CREAR PRODUCTO</a></button>
+            <% products.forEach((product,index)=>{%>
+                <div class="itemList">
+                    <div class="productItem">
+                        <p><%= index + 1 %></p>
+                        <!-- <a  href="/products/detalle/<%= product.id%>"><%= product.id%></a> -->
+                        <a  href="/products/detalle/<%= product.id%>"><span class="productName"><%= product.titulo%></span></a>                        
+                    </div>
+                    <div class="icon-productItem">
+                        <a href="products/edit/<%= product.id%>"><i class="fas fa-edit"></i></a>
+                    </div>
+                    <div class="icon-productItem">
+                        <form action="/products/delete/<%= product.id%>?_method=DELETE" method="post">
+                            <button class="productDelete" type="submit" ><i class="fas fa-trash"></i></button>                            
+                        </form>
+                    </div>
+                </div>
+            <%})%>           
+        </main>
+        <%- include('../partials/footer') %>
+        <script src="../js/index.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.2/js/toastr.min.js"></script>
+    </body>
+</html>
