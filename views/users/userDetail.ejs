@@ -1,0 +1,25 @@
+<%- include('../partials/head') %>
+<body>
+    <%- include('../partials/header') %>
+    <!-- DATOS DEL USUARIO-->
+    <main>
+        <h1><%= usuarioBuscado.id  %> <%= usuarioBuscado.nombre  %> <%= usuarioBuscado.apellido  %></h1>
+        <div>Avatar - <img src="../../img/userImages/<%= usuarioBuscado.avatar ? usuarioBuscado.avatar : 'default-image.png' %>" alt=" <%= usuarioBuscado.nombre  %>"></div>
+        <div>Fecha de Nacimiento - <%= usuarioBuscado.fecha_nacimiento  %></div>
+        <div>email -<%= usuarioBuscado.email  %></div>
+        <div>telefono - <%= usuarioBuscado.telefono  %></div>
+        <div>país - <%= usuarioBuscado.pais  %></div>
+        <div>provincia - <%= usuarioBuscado.provincia  %></div>
+        <div>localidad - <%= usuarioBuscado.localidad  %></div>
+        <div>dirección - <%= usuarioBuscado.direccion  %></div>
+        <div>piso - <%= usuarioBuscado.piso  %></div>
+        <div>código postal - <%= usuarioBuscado.cp  %></div>
+        <div>contraseña - <%= usuarioBuscado.password  %></div>
+        <div>¿términos y condiciones aceptados? - <%= usuarioBuscado.TYC  %></div>
+        <div>Rol Administrador - <%= usuarioBuscado.isAdmin  %></div>
+    </main>
+
+    <%- include('../partials/footer') %>
+    <script src="../../js/index.js"></script>
+</body>
+</html>

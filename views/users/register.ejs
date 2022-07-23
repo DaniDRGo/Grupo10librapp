@@ -7,7 +7,7 @@
                 <h1>REGISTRATE</h1>
             </section>
             <div class="register-form">
-                <form class="form-seccion" action="" method="">
+                <form class="form-seccion" action="/users/create" method="post" enctype="multipart/form-data">
                     <div class="primera-seccion">
                         <div class="input">
                             <h3 class="subtitulo-registro">Datos Personales</h3>
@@ -21,8 +21,8 @@
                             <input type="text" name="apellido" id="apellido" placeholder="Apellido" required>
                         </div>
                         <div class="input image">
-                            <label for="image" class="form-titles">Seleccioná una Imagen</label>
-                            <input type="file" name="image" id="image" accept=".png, .jpg" required>
+                            <label for="avatar" class="form-titles">Seleccioná una Imagen</label>
+                            <input type="file" name="avatar" id="avatar" accept=".png, .jpg" required>
                         </div>
                         <div class="input">
                             <label for="fecha">Fecha de Nacimiento</label>

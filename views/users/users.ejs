@@ -8,8 +8,11 @@
             <% users.forEach((user,index)=>{%>
                 <div class="itemList">
                     <div class="productItem">
-                        <p><%= index + 1 %></p> 
-                        <a  href="/users/detalle/<%= user.id%>"><span class="productName"><%= user.Nombre%> <%= user.Apellido%></span></a>                        
+                        <p><%= index + 1 %></p>
+                        <% if (user.isAdmin) { %>
+                            <p>*</p> 
+                        <% } %>         
+                        <a  href="/users/detalle/<%= user.id%>"><span class="productName"><%= user.nombre%> <%= user.apellido%></span></a>
                     </div>
                     <div class="icon-productItem">
                         <a href="users/edit/<%= user.id%>"><i class="fas fa-edit"></i></a>

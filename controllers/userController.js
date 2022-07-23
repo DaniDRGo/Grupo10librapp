@@ -10,72 +10,62 @@ const userController = {
   getAll: (req, res) => {
     res.render("users/users", { users });		
   },
-  // getOne: (req, res) => {
-  //   let id = req.params.id;
-  //   let productoBuscado = products.find((product) => product.id == id);
-  //   res.render("productDetail", { productoBuscado });
-  // },
-  // showForm: (req, res) => {
-  //   let allCategories = [];
-  //   let allFormatos = [];
-  //   // Recorro todo elarray para obtener solo la categoría
-  //   products.map((product) => {
-  //     allCategories.push(product.categoria);
-  //   });
-  //   // Recorro todo elarray para obtener solo el formato
-  //   products.map((product) => {
-  //     allFormatos.push(product.formato);
-  //   });
-  //   // Con SET quito los duplicado del Array
-  //   let categorias = [...new Set(allCategories)];
-  //   let formatos = [...new Set(allFormatos)];
-  //   //Ordeno el array
-  //   categorias = categorias.sort();
-  //   formatos = formatos.sort();
-  //   res.render("createProduct", { categorias, formatos });
-  // },
-  // createBook: (req, res) => {
-  //   let idDefinition = products.length + 1;
-  //   console.log(req.file)
-  //   let {
-  //     titulo,
-  //     autor,
-  //     portada,
-  //     descripcion,
-  //     isbn,
-  //     categoria,
-  //     numero_paginas,
-  //     formato,
-  //     precio,
-  //     peso,
-  //     idioma,
-  //   } = req.body;
+  getOne: (req, res) => {
+    let id = req.params.id;
+    let usuarioBuscado = users.find((user) => user.id == id);
+    res.render("users/userDetail", { usuarioBuscado });
+  },
+  showForm: (req, res) => {
+    res.render("users/register");
+  },
+  createUser: (req, res) => {
+    let idDefinition = users.length + 1;
+    console.log(req.file)
+    let {
+      nombre,
+      apellido,
+      avatar,
+      fecha,
+      email,
+      phone,
+      pais,
+      provincia,
+      localidad,
+      direccion,
+      piso,
+			cp,
+			password
+    } = req.body;
 
-  //   let newBook = {
-  //     id : idDefinition,
-  //     titulo,
-  //     autor,
-  //     portada,
-  //     descripcion,
-  //     isbn,
-  //     categoria,
-  //     numero_paginas,
-  //     formato,
-  //     precio,
-  //     peso,
-  //     idioma,
-  //   };
+    let newUser = {
+      id : idDefinition,
+      nombre,
+      apellido,
+      avatar,
+      fecha,
+      email,
+      phone,
+      pais,
+      provincia,
+      localidad,
+      direccion,
+      piso,
+			cp,
+			password
+    };
 
-  //   //Asignación del nombre de la imagen para poder guardarla en BBDD
-  //   newBook.portada =  req.file.filename;
+    //Asignación del nombre de la imagen para poder guardarla en BBDD
+    newUser.avatar =  req.file.filename;
 
-  //   products.unshift(newBook);
-  //   let productsReady = JSON.stringify(products)
-  //   fs.writeFileSync('./Database/dbproducts.json', productsReady)
+		console.log(newUser)
 
-  //   // console.log(productsReady)
-  //   res.redirect("/products");
-  // },
+    users.unshift(newUser);
+    let usersReady = JSON.stringify(users)
+    fs.writeFileSync('./Database/dbusers.json', usersReady)
+
+    // console.log(productsReady)
+    res.redirect("/users");
+  },
   // showFormEdit: (req, res) => {
 
   //   let itemToEdit = products.find( product => product.id == req.params.id );
