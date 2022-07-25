@@ -25,7 +25,7 @@ router.get('/create', userController.showForm);
 // Crea un Producto a partir del formulario cargado
 router.post('/create', upload.single('avatar') ,userController.createUser);
 // Editar Producto
-// router.get('/edit/:id', productController.showFormEdit);
+router.get('/edit/:id', userController.showFormEdit);
 // router.put('/edit/:id', productController.editBook);
 // Eliminar Producto
 // router.delete('/delete/:id', productController.destroyProduct);

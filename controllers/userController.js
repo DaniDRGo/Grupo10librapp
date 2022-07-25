@@ -1,10 +1,12 @@
 const fs = require("fs");
 const path = require("path");
 const multer = require("multer");
+const bcrypt = require('bcrypt')
 
 // LLamado a el archivo JSON
 const dbusers = path.join(__dirname, "../Database/dbusers.json");
 const users = JSON.parse(fs.readFileSync(dbusers, "utf-8"));
+
 
 const userController = {
   getAll: (req, res) => {
@@ -34,8 +36,11 @@ const userController = {
       direccion,
       piso,
 			cp,
-			password
+			password,
+			tc
     } = req.body;
+
+		password = bcrypt.hashSync(password,10)
 
     let newUser = {
       id : idDefinition,
@@ -51,44 +56,27 @@ const userController = {
       direccion,
       piso,
 			cp,
-			password
+			password,
+			TYC: tc,
+			isAdmin: false
     };
 
     //Asignación del nombre de la imagen para poder guardarla en BBDD
     newUser.avatar =  req.file.filename;
+		// Captura la inforacion edl radio button , para hacer validaciones posteriores
+		newUser.TYC = newUser.TYC ? true : false ;
 
-		console.log(newUser)
+		users.unshift(newUser);
+		let usersReady = JSON.stringify(users)
+		fs.writeFileSync('./Database/dbusers.json', usersReady);
+		res.redirect("/users");
 
-    users.unshift(newUser);
-    let usersReady = JSON.stringify(users)
-    fs.writeFileSync('./Database/dbusers.json', usersReady)
-
-    // console.log(productsReady)
-    res.redirect("/users");
+  
   },
-  // showFormEdit: (req, res) => {
-
-  //   let itemToEdit = products.find( product => product.id == req.params.id );
-
-  //   let allCategories = [];
-  //   let allFormatos = [];
-  //   // Recorro todo el array para obtener solo la categoría
-  //   products.map((product) => {
-  //     allCategories.push(product.categoria);
-  //   });
-  //   // Recorro todo el array para obtener solo el formato
-  //   products.map((product) => {
-  //     allFormatos.push(product.formato);
-  //   });
-  //   // Con SET quito los duplicado del Array
-  //   let categorias = [...new Set(allCategories)];
-  //   let formatos = [...new Set(allFormatos)];
-  //   //Ordeno el array
-  //   categorias = categorias.sort();
-  //   formatos = formatos.sort();
-
-  //   res.render("editProduct", { categorias, formatos, itemToEdit });
-  // },
+  showFormEdit: (req, res) => {
+    let userToEdit = users.find( user => user.id == req.params.id );
+    res.render("users/editUser", { userToEdit });
+  },
   // editBook: (req, res) => {
 
   //   const idBuscado = req.params.id
