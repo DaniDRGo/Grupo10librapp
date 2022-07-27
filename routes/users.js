@@ -16,8 +16,13 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage: storage })
 
+function refresh(req,res,next){
+  res.redirect('/users')
+  next()
+}
+
 // Renderiza todos los usuarios
-router.get('/', userController.getAll );
+router.get('/',/*refresh,*/ userController.getAll );
 // Renderiza el detalle de un producto
 router.get('/detalle/:id', userController.getOne);
 // Renderiza el formulario para crear un usuario
@@ -26,9 +31,10 @@ router.get('/create', userController.showForm);
 router.post('/create', upload.single('avatar') ,userController.createUser);
 // Editar Producto
 router.get('/edit/:id', userController.showFormEdit);
-// router.put('/edit/:id', productController.editBook);
-// Eliminar Producto
-// router.delete('/delete/:id', productController.destroyProduct);
+router.put('/edit/:id', userController.editUser);
+
+ // Eliminar Producto
+router.delete('/delete/:id', userController.destroyUser);
 
 
 
