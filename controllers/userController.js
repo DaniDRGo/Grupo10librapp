@@ -8,6 +8,7 @@ const dbusers = path.join(__dirname, "../Database/dbusers.json");
 const users = JSON.parse(fs.readFileSync(dbusers, "utf-8"));
 
 
+
 const userController = {
   getAll: (req, res) => {
     res.render("users/users", { users });		
@@ -77,51 +78,56 @@ const userController = {
     let userToEdit = users.find( user => user.id == req.params.id );
     res.render("users/editUser", { userToEdit });
   },
-  // editBook: (req, res) => {
+ editUser: (req, res) => {
 
-  //   const idBuscado = req.params.id
+   const idBuscado = req.params.id
 
-  //   let productModification = {
-  //     titulo,
-  //     autor,
-  //     portada,
-  //     descripcion,
-  //     isbn,
-  //     categoria,
-  //     numero_paginas,
-  //     formato,
-  //     precio,
-  //     peso,
-  //     idioma,
-  //   } = req.body;
+   let userModification = {
+      nombre,
+      apellido,
+      avatar,
+      fecha,
+      email,
+      phone,
+      pais,
+      provincia,
+      localidad,
+      direccion,
+      piso,
+			cp,
+			password,
+			isAdmin
+   } = req.body;
+   console.log(userModification);
 
-  //   let updatedBook = {
-  //     id : idBuscado,
-  //     ...productModification
-  //   };
+   let updatedUser = {
+     id : idBuscado,
+    ...userModification    
+   };
+   console.log(updatedUser);
 
-  //   for (const i in products) {
-  //     if (products[i].id == idBuscado)  {
-  //       products[i] = updatedBook;
-  //       break;
-  //     }
-  //   }
+   for (const i in users) {
+     if (users[i].id == idBuscado)  {
+       users[i] = updatedUser;
+       break;
+     }
+   }
 
-  //   fs.writeFileSync('./Database/dbproducts.json', JSON.stringify(products), {encoding: 'utf-8'})
+   fs.writeFileSync('./Database/dbusers.json', JSON.stringify(users), {encoding: 'utf-8'})
 
-  //   res.redirect("/products");
-  // },
-  // destroyProduct: (req, res) => {
+   res.redirect("/users");
+ },
+  destroyUser: (req, res) => {
 
-  //   let idBuscado = req.params.id;
+   let idBuscado = req.params.id;
 
-  //   let productUpdatedList = products.filter( product => product.id != idBuscado );
+     let userUpdatedList = users.filter( user => user.id != idBuscado );
 
-  //   fs.writeFileSync('./Database/dbproducts.json', JSON.stringify(productUpdatedList), {encoding: 'utf-8'});
+     fs.writeFileSync('./Database/dbusers.json', JSON.stringify(userUpdatedList), {encoding: 'utf-8'});
 
-  //   res.redirect('/products');
+     res.redirect('/users');
 
-  // }
+   }
 };
 
 module.exports = userController;

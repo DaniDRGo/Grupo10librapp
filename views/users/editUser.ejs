@@ -7,7 +7,7 @@
                 <h1>ACTUALIZA TUS DATOS</h1>
             </section>
             <div class="register-form">
-                <form class="form-seccion" action="" method="">
+                <form class="form-seccion" action="/users/edit/<%=userToEdit.id%>?_method=PUT" method="post">
                     <div class="primera-seccion">
                         <div class="input">
                             <h3 class="subtitulo-registro">Datos Personales</h3>
@@ -20,10 +20,10 @@
                             <!-- <label for="apellido">Apellido</label> -->
                             <input type="text" name="apellido" id="apellido" placeholder="Apellido" required value="<%= userToEdit.apellido %>">
                         </div>
-                        <div class="input image">
-                            <label for="image" class="form-titles">Seleccioná una Imagen</label>
-                            <input type="file" name="image" id="image" accept=".png, .jpg" required value="<%= userToEdit.avatar %>">
-                        </div>
+                        <!--<div class="input image">
+                            <label for="avatar" class="form-titles">Seleccioná una Imagen</label>
+                            <input type="file" name="avatar" id="avatar" accept=".png, .jpg" value="<%= userToEdit.avatar %>">
+                        </div>-->
                         <div class="input">
                             <label for="fecha">Fecha de Nacimiento</label>
                             <input type="date" name="fecha" id="fecha" required value="<%= userToEdit.fecha %>">
@@ -67,7 +67,7 @@
                         </div>
                         <div class="input">
                             <!-- <label for="password">Contraseña</label> -->
-                            <input type="password" name="password" id="password" placeholder="Contraseña" required>
+                            <input type="password" name="password" id="password" placeholder="Contraseña">
                         </div>
                         <!-- <div class="input">
                             <label for="confirm-password">Confirmar Contraseña</label>
@@ -83,7 +83,7 @@
                         </div>
                         <div class="input botones">
                             <input type="reset" value="Borrar Formulario">
-                            <input type="submit" name="Enviar">
+                            <input type="submit" name="Actualizar-Usuario">
                         </div>
                     </div>
                 </form>
