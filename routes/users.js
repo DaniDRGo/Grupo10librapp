@@ -31,30 +31,4 @@ router.get('/edit/:id', userController.showFormEdit);
 // router.delete('/delete/:id', productController.destroyProduct);
 
 
-
-
-
-// ELiminar - e ir migrando
-
-
-
-
-
-
-
-
-
-
-// router.get('/edit', function(req, res) {
-//   res.render('editUser');
-// });
-
-// router.get('/register', function(req, res) {
-//   res.render('register', { title: 'Express' });
-// });
-
-// router.get('/login', function(req, res) {
-//   res.render('login', { title: 'Express' });
-// });
-
 module.exports = router;
