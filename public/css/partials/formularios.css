@@ -54,6 +54,10 @@ select {
   outline-color: var(--secundario);
 }
 
+.error-message{
+  color: red;
+}
+
 .date,
 .image {
   display: flex;

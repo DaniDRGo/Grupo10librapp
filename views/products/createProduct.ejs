@@ -1,7 +1,6 @@
 <%- include('../partials/head') %>
     <body>
         <%- include('../partials/header') %>
-
         <main class="formulario-registro">
             <section class="titulo-registro">
                 <h1>Agrega un Nuevo Libro</h1>
@@ -13,20 +12,65 @@
                             <h3 class="subtitulo-registro">Información del Libro</h3>
                         </div>
                         <div class="input">
-                            <input type="text" name="titulo" id="titulo" placeholder="titulo" required>
+                            <input type="text" 
+                                    name="titulo" 
+                                    id="titulo" 
+                                    placeholder="titulo"
+                                    value= "<%= locals.old && old.titulo ? old.titulo : null  %>" 
+                            > 
+                            <% if (locals.errors && errors.titulo) { %>
+                                <div class="error-message">
+                                    <%= errors.titulo.msg %> 
+                                </div>
+                            <% } %>
                         </div>
                         <div class="input">
-                            <textarea name="descripcion" id="descripcion" cols="30" rows="10" placeholder="descripcion"></textarea>
+                            <textarea name="descripcion" 
+                                        id="descripcion" 
+                                        cols="30" 
+                                        rows="10" 
+                                        placeholder="descripcion"
+                                        ><%= locals.old && old.descripcion ? old.descripcion : null  %></textarea>
+                            <% if (locals.errors && errors.descripcion) { %>
+                                <div class="error-message">
+                                    <%= errors.descripcion.msg %> 
+                                </div>
+                            <% } %>
                         </div>
                         <div class="input image">
                             <label for="portada" class="form-titles">Seleccioná una Imagen de Portada</label>
-                            <input type="file" name="portada" id="portada" accept=".png, .jpg" required>
+                            <input type="file" name="portada" id="portada" accept=".png, .jpg" >
+                            <% if (locals.errors && errors.portada) { %>
+                                <div class="error-message">
+                                    <%= errors.portada.msg %> 
+                                </div>
+                            <% } %>
                         </div>
                         <div class="input">
-                            <input type="text" name="autor" id="autor" placeholder="autor" required>
+                            <input type="text"
+                                    name="autor"
+                                    id="autor" 
+                                    placeholder="autor"
+                                    value="<%= locals.old && old.autor ? old.autor : null  %>"
+                                    >
+                            <% if (locals.errors && errors.autor) { %>
+                                <div class="error-message">
+                                    <%= errors.autor.msg %> 
+                                </div>
+                            <% } %>
                         </div>
                         <div class="input">
-                            <input type="text" name="isbn" id="isbn" placeholder="isbn" required>
+                            <input type="text" 
+                                    name="isbn" 
+                                    id="isbn" 
+                                    placeholder="isbn"
+                                    value="<%= locals.old && old.isbn ? old.isbn : null  %>"
+                                    >
+                            <% if (locals.errors && errors.isbn) { %>
+                                <div class="error-message">
+                                    <%= errors.isbn.msg %> 
+                                </div>
+                            <% } %>
                         </div>
                         <div class="input">
                             <select name="categoria" id="categoria">
@@ -37,7 +81,17 @@
                             </select>
                         </div>
                         <div class="input">
-                            <input type="number" name="numero_paginas" id="numero_paginas" placeholder=" # Paginas" required>
+                            <input type="number" 
+                                    name="numero_paginas" 
+                                    id="numero_paginas" 
+                                    placeholder=" # Paginas" 
+                                    value="<%= locals.old && old.numero_paginas ? old.numero_paginas : null  %>"                                    
+                                    >
+                            <% if (locals.errors && errors.numero_paginas) { %>
+                                <div class="error-message">
+                                    <%= errors.numero_paginas.msg %> 
+                                </div>
+                            <% } %>
                         </div>
                     </div>
                     <div class="segunda-seccion">
@@ -50,13 +104,43 @@
                             </select>
                         </div>
                         <div class="input">
-                            <input type="number" name="precio" id="precio" placeholder=" Precio" required>
+                            <input type="number" 
+                                    name="precio" 
+                                    id="precio" 
+                                    placeholder=" Precio" 
+                                    value="<%= locals.old && old.precio ? old.precio : null  %>"
+                                    >
+                            <% if (locals.errors && errors.precio) { %>
+                                <div class="error-message">
+                                    <%= errors.precio.msg %> 
+                                </div>
+                            <% } %>
                         </div>
                         <div class="input">
-                            <input type="number" name="peso" id="peso" placeholder=" Peso" required>
+                            <input type="number" 
+                                    name="peso" 
+                                    id="peso" 
+                                    placeholder=" Peso" 
+                                    value="<%= locals.old && old.peso ? old.peso : null  %>"
+                                    >
+                            <% if (locals.errors && errors.peso) { %>
+                                <div class="error-message">
+                                    <%= errors.peso.msg %> 
+                                </div>
+                            <% } %>
                         </div>
                         <div class="input">
-                            <input type="text" name="idioma" id="idioma" placeholder="idioma" required>
+                            <input type="text" 
+                                    name="idioma" 
+                                    id="idioma" 
+                                    placeholder="idioma" 
+                                    value="<%= locals.old && old.idioma ? old.idioma : null  %>"
+                                    >
+                            <% if (locals.errors && errors.idioma) { %>
+                                <div class="error-message">
+                                    <%= errors.idioma.msg %> 
+                                </div>
+                            <% } %>
                         </div>
                     </div>
                     <div class="form-confirm">

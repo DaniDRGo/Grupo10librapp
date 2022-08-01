@@ -1,12 +1,30 @@
 const fs = require("fs");
 const path = require("path");
+
 const multer = require('multer');
-
-
+const { validationResult } = require('express-validator')
 
 // LLamado a el archivo JSON
 const dbproducts = path.join(__dirname, "../Database/dbproducts.json");
 const products = JSON.parse(fs.readFileSync(dbproducts, "utf-8"));
+
+// Otros campos mapeados
+let allCategories = [];
+let allFormatos = [];
+  // Recorro todo elarray para obtener solo la categoría
+products.map((product) => {
+  allCategories.push(product.categoria);
+});
+  // Recorro todo elarray para obtener solo el formato
+products.map((product) => {
+  allFormatos.push(product.formato);
+});
+// Con SET quito los duplicado del Array
+let categorias = [...new Set(allCategories)];
+let formatos = [...new Set(allFormatos)];
+//Ordeno los array
+categorias = categorias.sort();
+formatos = formatos.sort();
 
 
 const productController = {
@@ -20,65 +38,53 @@ const productController = {
     res.render("products/productDetail", { productoBuscado });
   },
   showForm: (req, res) => {
-    let allCategories = [];
-    let allFormatos = [];
-    // Recorro todo elarray para obtener solo la categoría
-    products.map((product) => {
-      allCategories.push(product.categoria);
-    });
-    // Recorro todo elarray para obtener solo el formato
-    products.map((product) => {
-      allFormatos.push(product.formato);
-    });
-    // Con SET quito los duplicado del Array
-    let categorias = [...new Set(allCategories)];
-    let formatos = [...new Set(allFormatos)];
-    //Ordeno el array
-    categorias = categorias.sort();
-    formatos = formatos.sort();
     res.render("products/createProduct", { categorias, formatos });
   },  
   createBook: (req, res) => {
-    let idDefinition = products.length + 1;
-    console.log(req.file)
-    let {
-      titulo,
-      autor,
-      portada,
-      descripcion,
-      isbn,
-      categoria,
-      numero_paginas,
-      formato,
-      precio,
-      peso,
-      idioma,
-    } = req.body;
+    let errors = validationResult(req);
 
-    let newBook = {
-      id : idDefinition,
-      titulo,
-      autor,
-      portada,
-      descripcion,
-      isbn,
-      categoria,
-      numero_paginas,
-      formato,
-      precio,
-      peso,
-      idioma,
-    };
-
-    //Asignación del nombre de la imagen para poder guardarla en BBDD
-    newBook.portada =  req.file.filename;
-
-    products.unshift(newBook);
-    let productsReady = JSON.stringify(products)
-    fs.writeFileSync('./Database/dbproducts.json', productsReady)
-
-    // console.log(productsReady)
-    res.redirect("/products");
+    if(errors.isEmpty()){
+      let idDefinition = products.length + 1;
+      let {
+        titulo,
+        autor,
+        portada,
+        descripcion,
+        isbn,
+        categoria,
+        numero_paginas,
+        formato,
+        precio,
+        peso,
+        idioma,
+      } = req.body;
+  
+      let newBook = {
+        id : idDefinition,
+        titulo,
+        autor,
+        portada,
+        descripcion,
+        isbn,
+        categoria,
+        numero_paginas,
+        formato,
+        precio,
+        peso,
+        idioma,
+      };
+  
+      //Asignación del nombre de la imagen para poder guardarla en BBDD
+      newBook.portada =  req.file.filename;
+  
+      products.unshift(newBook);
+      let productsReady = JSON.stringify(products)
+      fs.writeFileSync('./Database/dbproducts.json', productsReady)
+  
+      res.redirect("/products");
+    }else{
+      res.render('products/createProduct', { errors: errors.mapped(), old: req.body, categorias, formatos })
+    }
   },
   showFormEdit: (req, res) => {
 

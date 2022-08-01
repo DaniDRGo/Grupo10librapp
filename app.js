@@ -2,6 +2,7 @@ const createError = require('http-errors');
 const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
+const session = require('express-session');
 const logger = require('morgan');
 const methodOverride = require('method-override');
 const indexRouter = require('./routes/index');
@@ -23,6 +24,12 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(methodOverride('_method'));
+//Implementacion de Sesiones para poder enviar mensajes entre rutas (endpoints)
+app.use(session({
+  secret: 'libr@pp-Aplic@tion',
+  resave: false,
+  saveUninitialized: true
+}));
 
 
 app.use('/', indexRouter);
