@@ -3,6 +3,10 @@
     <body>
         <%- include('./partials/header') %>
         <main>
+            <% if (user) { %>
+                <p><%= user.id %> </p>
+                <p><%= user.email %> </p>
+            <% } %>
             <div class="contenedor">
                 <section class="categorias">
                     <select class="selector" name="categorias" id="categorias">

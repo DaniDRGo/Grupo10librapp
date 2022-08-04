@@ -116,6 +116,42 @@ const userController = {
     fs.writeFileSync("./Database/dbusers.json",JSON.stringify(userUpdatedList), { encoding: "utf-8" });
 
     res.redirect("/users");
+  },
+  showLogin: (req, res) => {
+    res.render('users/login')
+  },
+  processLogin: (req, res) =>{
+    let {email, password} = req.body
+
+    let userToLogIn = users.find( user =>  user.email == email)
+
+    if(!userToLogIn){
+      req.session.message = 'Usuario no Existe en BBDD'
+      res.render('users/login', { message: req.session.message})
+    }
+
+    let comparePassword = bcrypt.compareSync(password,userToLogIn.password)
+
+    if(comparePassword){
+      req.session.user = {
+        id: userToLogIn.id,
+        email: userToLogIn.email
+      } //Tomar estos datos y pintarlos en el Index
+    req.session.message =  'usuario logueado' ;
+    res.redirect('/')
+    }else{
+      req.session.message =  'email o password inválido' 
+      res.render('users/login', { userEmail: email , message: req.session.message})
+    }
+
+  
+
+
+
+    // res.json({
+    //   user: req.session.user,
+    //   message: 'Usuario Logueado'
+    // })
   }
 };
 

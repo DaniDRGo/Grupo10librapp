@@ -3,13 +3,22 @@
         <%- include('../partials/header') %>
         <main class="formulario-registro">
             <div class="login-form">
-                <form action="/" method="post" class="form">
+                <form action="/users/login" method="post" class="form">
+                    <% if (locals.message) { %>
+                        <p><%= locals.message %> </p>
+                    <% } %>
                     <div class="input">
                         <h3 class="subtitulo-registro">Ingresa tus datos</h3>
                     </div>
                     <div class="input">
                         <!-- <label for="nickname">Nombre de Usuario</label> -->
-                        <input type="text" name="nickname" id="nickname" placeholder="Usuario" required>
+                        <input type="email" 
+                        name="email" 
+                        id="email" 
+                        placeholder="email" 
+                        required
+                        value= "<%= locals.userEmail && userEmail ? userEmail : null  %> "
+                        >
                     </div>
                     <div class="input">
                         <!-- <label for="password">Contraseña</label> -->
@@ -18,8 +27,8 @@
                     <div class="form-confirm">
                         <div class="input">
                             <div class="categories-check">
-                                <input type="checkbox" name="tc" value="accept" checked>
-                                <label for="tc">Recordar datos</label>
+                                <input type="checkbox" name="recordarDatos" checked>
+                                <label for="recordarDatos">Recordar datos</label>
                             </div>
                         </div>
                         <div class="input">

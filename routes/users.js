@@ -5,6 +5,8 @@ const path = require('path');
 
 const userController = require('../controllers/userController')
 
+
+// Implementación para la carga de una imagen (Avatar)
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
     cb(null, path.join(__dirname, '../public/img/userImages'))
@@ -16,13 +18,12 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage: storage })
 
-function refresh(req,res,next){
-  res.redirect('/users')
-  next()
-}
+
+
+// RUTAS
 
 // Renderiza todos los usuarios
-router.get('/',/*refresh,*/ userController.getAll );
+router.get('/', userController.getAll );
 // Renderiza el detalle de un producto
 router.get('/detalle/:id', userController.getOne);
 // Renderiza el formulario para crear un usuario
@@ -32,9 +33,11 @@ router.post('/create', upload.single('avatar') ,userController.createUser);
 // Editar Producto
 router.get('/edit/:id', userController.showFormEdit);
 router.put('/edit/:id', userController.editUser);
-
- // Eliminar Producto
+// Eliminar Producto
 router.delete('/delete/:id', userController.destroyUser);
+// LOGIN de Usuario
+router.get('/login', userController.showLogin)
+router.post('/login', userController.processLogin)
 
 
 module.exports = router;
