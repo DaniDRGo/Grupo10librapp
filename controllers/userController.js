@@ -3,6 +3,7 @@ const path = require("path");
 const multer = require("multer");
 const bcrypt = require("bcrypt");
 
+
 // LLamado a el archivo JSON
 const dbusers = path.join(__dirname, "../Database/dbusers.json");
 const users = JSON.parse(fs.readFileSync(dbusers, "utf-8"));
@@ -118,10 +119,20 @@ const userController = {
     res.redirect("/users");
   },
   showLogin: (req, res) => {
+    let userData = req.cookies.user;
+    if(userData){
+      res.render('users/login', { userData })
+    }
+
     res.render('users/login')
   },
   processLogin: (req, res) =>{
-    let {email, password} = req.body
+    console.log(req.body);
+    let {email, password, recordarDatos} = req.body
+
+    if(recordarDatos){
+      res.cookie('user', email)
+    }
 
     let userToLogIn = users.find( user =>  user.email == email)
 
@@ -143,15 +154,10 @@ const userController = {
       req.session.message =  'email o password inválido' 
       res.render('users/login', { userEmail: email , message: req.session.message})
     }
-
-  
-
-
-
-    // res.json({
-    //   user: req.session.user,
-    //   message: 'Usuario Logueado'
-    // })
+  },
+  logout: (req, res) => {
+    req.session.destroy();
+    return res.redirect('login')
   }
 };
 

@@ -2,6 +2,9 @@ var express = require('express');
 var router = express.Router();
 const path = require('path');
 
+const loggedInValidator = require('../middlewares/loggedInMiddleware');
+const authValidator = require('../middlewares/authMiddleware');
+
 const multer = require('multer');
 const { check, body } = require('express-validator')
 
@@ -67,7 +70,7 @@ const formsValidations = [
 //  RUTAS
 
 // Renderiza todos los productos
-router.get('/', productController.getAll );
+router.get('/',authValidator, productController.getAll );
 // Renderiza el detalle de un producto
 router.get('/detalle/:id', productController.getOne);
 // Renderiza el formulario para crear un producto

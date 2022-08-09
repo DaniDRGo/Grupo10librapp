@@ -20,11 +20,11 @@ app.set('view engine', 'ejs');
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(methodOverride('_method'));
 //Implementacion de Sesiones para poder enviar mensajes entre rutas (endpoints)
+app.use(cookieParser());
 app.use(session({
   secret: 'libr@pp-Aplic@tion',
   resave: false,

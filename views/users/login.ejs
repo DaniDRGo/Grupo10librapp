@@ -4,9 +4,6 @@
         <main class="formulario-registro">
             <div class="login-form">
                 <form action="/users/login" method="post" class="form">
-                    <% if (locals.message) { %>
-                        <p><%= locals.message %> </p>
-                    <% } %>
                     <div class="input">
                         <h3 class="subtitulo-registro">Ingresa tus datos</h3>
                     </div>
@@ -17,7 +14,7 @@
                         id="email" 
                         placeholder="email" 
                         required
-                        value= "<%= locals.userEmail && userEmail ? userEmail : null  %> "
+                        value= "<%= locals.userData && userData ? userData : null  %> "
                         >
                     </div>
                     <div class="input">
