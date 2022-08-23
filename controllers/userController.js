@@ -2,6 +2,7 @@ const fs = require("fs");
 const path = require("path");
 const multer = require("multer");
 const bcrypt = require("bcrypt");
+const db = require('../db/models');
 
 
 // LLamado a el archivo JSON
@@ -10,7 +11,9 @@ const users = JSON.parse(fs.readFileSync(dbusers, "utf-8"));
 
 const userController = {
   getAll: (req, res) => {
-    res.render("users/users", { users });
+    db.Usuario.findAll()
+      .then(users => res.json( users ))
+    // res.render("users/users", { users });
   },
   getOne: (req, res) => {
     let id = req.params.id;
@@ -21,55 +24,72 @@ const userController = {
     res.render("users/register");
   },
   createUser: (req, res) => {
-    let idDefinition = users.length + 1;
-    console.log(req.file);
-    let {
-      nombre,
-      apellido,
-      avatar,
-      fecha,
-      email,
-      phone,
-      pais,
-      provincia,
-      localidad,
-      direccion,
-      piso,
-      cp,
-      password,
-      tc,
-    } = req.body;
+    db.Usuario.create({
+      nombre: req.body.nombre,
+      apellido: req.body.apellido,
+      avatar: 'http://placeimg.com/480/640/any',
+      fecha_nacimiento: req.body.fecha,
+      email: req.body.email,
+      telefono: req.body.phone,
+      pais: req.body.pais,
+      provincia: req.body.provincia,
+      localidad: req.body.localidad,
+      direccion: req.body.direccion,
+      piso: req.body.piso,
+      cod_postal: req.body.cp,
+      password: req.body.password,
+      tyc: req.body.tc,
+      id_rol: 2 
+    })
+    // let idDefinition = users.length + 1;
+    // console.log(req.file);
+    // let {
+    //   nombre,
+    //   apellido,
+    //   avatar,
+    //   fecha,
+    //   email,
+    //   phone,
+    //   pais,
+    //   provincia,
+    //   localidad,
+    //   direccion,
+    //   piso,
+    //   cp,
+    //   password,
+    //   tc,
+    // } = req.body;
 
-    password = bcrypt.hashSync(password, 10);
+    // password = bcrypt.hashSync(password, 10);
 
-    let newUser = {
-      id: idDefinition,
-      nombre,
-      apellido,
-      avatar,
-      fecha,
-      email,
-      phone,
-      pais,
-      provincia,
-      localidad,
-      direccion,
-      piso,
-      cp,
-      password,
-      TYC: tc,
-      isAdmin: false,
-    };
+    // let newUser = {
+    //   id: idDefinition,
+    //   nombre,
+    //   apellido,
+    //   avatar,
+    //   fecha,
+    //   email,
+    //   phone,
+    //   pais,
+    //   provincia,
+    //   localidad,
+    //   direccion,
+    //   piso,
+    //   cp,
+    //   password,
+    //   TYC: tc,
+    //   isAdmin: false,
+    // };
 
-    //Asignación del nombre de la imagen para poder guardarla en BBDD
-    newUser.avatar = req.file.filename;
-    // Captura la inforacion edl radio button , para hacer validaciones posteriores
-    newUser.TYC = newUser.TYC ? true : false;
+    // //Asignación del nombre de la imagen para poder guardarla en BBDD
+    // newUser.avatar = req.file.filename;
+    // // Captura la inforacion edl radio button , para hacer validaciones posteriores
+    // newUser.TYC = newUser.TYC ? true : false;
 
-    users.unshift(newUser);
-    let usersReady = JSON.stringify(users);
-    fs.writeFileSync("./Database/dbusers.json", usersReady);
-    res.redirect("/users");
+    // users.unshift(newUser);
+    // let usersReady = JSON.stringify(users);
+    // fs.writeFileSync("./Database/dbusers.json", usersReady);
+    // res.redirect("/users");
   },
   showFormEdit: (req, res) => {
     let userToEdit = users.find((user) => user.id == req.params.id);
