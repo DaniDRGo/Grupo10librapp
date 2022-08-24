@@ -9,16 +9,16 @@
                 <div class="itemList">
                     <div class="productItem">
                         <p><%= index + 1 %></p>
-                        <% if (user.isAdmin) { %>
+                        <% if (user.id_rol == 1) { %>
                             <p>*</p> 
                         <% } %>         
-                        <a  href="/users/detalle/<%= user.id%>"><span class="productName"><%= user.nombre%> <%= user.apellido%></span></a>
+                        <a  href="/users/detalle/<%= user.id_usuario%>"><span class="productName"><%= user.nombre%> <%= user.apellido%></span></a>
                     </div>
                     <div class="icon-productItem">
-                        <a href="users/edit/<%= user.id%>"><i class="fas fa-edit"></i></a>
+                        <a href="users/edit/<%= user.id_usuario%>"><i class="fas fa-edit"></i></a>
                     </div>
                     <div class="icon-productItem">
-                        <form action="/users/delete/<%= user.id%>?_method=DELETE" method="post">
+                        <form action="/users/delete/<%= user.id_usuario%>?_method=DELETE" method="post">
                             <button class="productDelete" type="submit" ><i class="fas fa-trash"></i></button>                            
                         </form>
                     </div>
