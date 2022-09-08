@@ -4,24 +4,8 @@ const fetch = require('node-fetch')
 const db = require('../db/models');
 
 /* GET home page. */
-router.get('/',  async function  (req, res) {  
-    const user = req.session.user
-    let categoriasCompletas = await   db.Categoria.findAll();
-    let libros = await fetch('https://fakerapi.it/api/v1/books?_quantity=20').then(response =>  response.json() );  // Se usará para info de la card
-    let images = await fetch('https://api.unsplash.com/photos/random/?client_id=rA9KqTGdsd5kBu7Z4za_GHlhSo_gybKzDmNb5V0r3d4&count=20&orientation=portrait&w=1500&dpr=2').then(response =>  response.json() );
-    let librosCompletos = await db.Libro.findAll();
-    if(req.params.category){
-      librosCompletos = librosCompletos.filter( libro => libro.id_categoria_libro == req.params.category )
-    }
-    // console.log( librosCompletos )
-    res.render('index', { 
-      user,
-      apiBooks: libros.data,
-      apiImages: images,
-      categorias: categoriasCompletas,
-      librosOk: librosCompletos
-    });
-  })
+
+// pendiente hacer CRUD de Libros
 
 router.get('/category/:id?', async (req, res)=>{
     // console.log(req.params)
