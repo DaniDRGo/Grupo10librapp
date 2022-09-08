@@ -19,11 +19,16 @@
                         <option value="all">Todas</option>
                     </select>
                     <div class="menu-categorias">
-                        <ul class="lista-categorias">
-                            <% for( let index = 0; index < 16; index++ ) { %>
-                                <li class="item-categoria"><a href="">categoría</a></li>
-                            <% } %>
-                        </ul>
+                            <ul class="lista-categorias">
+                                <% categorias.forEach(categoria => { %>
+                                    <form action="/category/<%= categoria.id_categoria_libro %> " method="get">
+                                        <li class="item-categoria"><button class="categoriasBusqueda" type="submit"><%= categoria.nombre_categoria_libro %></button></li>
+                                    </form>
+                                <% }) %>
+                                <form action="/category/" method="get">
+                                    <li class="item-categoria"><button class="categoriasBusqueda" type="submit">Todos</button></li>
+                                </form>
+                            </ul>
                     </div>
                 </section>
                 <section class="slider">
@@ -55,12 +60,27 @@
                 </section>
                 <!--Sección de productos en mobile -->
                 <section class="principal small">
-                    <h2 class="tituloPrincipal">Más Pedidos</h2>
+                    <h2 class="tituloPrincipal">Libros</h2>
                     <div class="swiper mySwiper">
                         <div class="swiper-wrapper">
                             <% for( let index = 0; index < 10; index++ ) { %>
                                 <div class="swiper-slide card-book">
-                                    <%- include('./partials/book') %>
+                                    <div class="book">
+                                        <div class="book-image">
+                                            <img class="bookImagen" src="https://via.placeholder.com/240x300" alt="">
+                                        </div>
+                                        <div class="book-info">
+                                            <div class="book-title">
+                                                <h5>titulo del Libro</h5>
+                                            </div>
+                                            <div class="book-price">
+                                                <p>AR$ 50.00</p>
+                                            </div>
+                                            <div class="icon-agregar">
+                                                <i class="fas fa-heart"></i>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             <% } %>
                         </div>
@@ -69,53 +89,26 @@
                 </section>
                 <!-- sección de productos en tablet y desktop -->
                 <section class="principal medium">
-                    <h2 class="tituloPrincipal">Más Pedidos</h2>
+                    <h2 class="tituloPrincipal">Libros</h2>
                     <div class="book-container">
-                        <% for( let index = 0; index < 5; index++ ) { %>
-                            <%- include('./partials/book') %>
-                        <% } %>
-                    </div>
-                </section>
-                <section class="principal small">
-                    <h2 class="tituloPrincipal">Lo Más Nuevo</h2>
-                    <div class="swiper mySwiper">
-                        <div class="swiper-wrapper">
-                            <% for( let index = 0; index < 10; index++ ) { %>
-                                <div class="swiper-slide card-book">
-                                    <%- include('./partials/book') %>
+                        <% librosOk.forEach(libro => { %>
+                            <div class="book">
+                                <div class="book-image">
+                                    <img class="bookImagen" src=<%= libro.portada %> alt="<%= libro.titulo %>">
                                 </div>
-                            <% } %>
-                        </div>
-                        <div class="swiper-pagination"></div>
-                    </div>
-                </section>
-                <section class="principal medium">
-                    <h2 class="tituloPrincipal">Lo Más Nuevo</h2>
-                    <div class="book-container">
-                        <% for( let index = 0; index < 5; index++ ) { %>
-                            <%- include('./partials/book') %>
-                        <% } %>
-                    </div>
-                </section>
-                <section class="principal small">
-                    <h2 class="tituloPrincipal">Todos</h2>
-                    <div class="swiper mySwiper">
-                        <div class="swiper-wrapper">
-                            <% for( let index = 0; index < 10; index++ ) { %>
-                                <div class="swiper-slide card-book">
-                                    <%- include('./partials/book') %>
-                                </div>    
-                            <% } %>
-                        </div>
-                        <div class="swiper-pagination"></div>
-                    </div>
-                </section>
-                <section class="principal medium">
-                    <h2 class="tituloPrincipal">Todos</h2>
-                    <div class="book-container">
-                        <% for( let index = 0; index < 15; index++ ) { %>
-                            <%- include('./partials/book') %>
-                        <% } %>
+                                <div class="book-info">
+                                    <div class="book-title">
+                                        <h5><%= libro.titulo %> </h5>
+                                    </div>
+                                    <div class="book-price">
+                                        <p>AR$ <%= libro.precio %></p>
+                                    </div>
+                                    <div class="icon-agregar">
+                                        <i class="fas fa-heart"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        <% }) %>
                     </div>
                 </section>
             </div>
