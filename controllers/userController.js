@@ -50,8 +50,6 @@ const userController = {
   showFormEdit: (req, res) => {
     db.Usuario.findByPk(req.params.id)
       .then( user => res.render("users/editUser", { userToEdit: user }) )
-    // let userToEdit = users.find((user) => user.id == req.params.id);
-    // res.render("users/editUser", { userToEdit });
   },
   editUser: (req, res) => {
         
@@ -75,9 +73,11 @@ const userController = {
     res.redirect("/users");
   },
   destroyUser: (req, res) => {
-    let idBuscado = req.params.id;
-    let userUpdatedList = users.filter((user) => user.id != idBuscado);
-    fs.writeFileSync("./Database/dbusers.json",JSON.stringify(userUpdatedList), { encoding: "utf-8" });
+    db.Usuario.destroy({
+      where: {
+        id_usuario: req.params.id 
+      }
+    });
 
     res.redirect("/users");
   },
@@ -89,7 +89,7 @@ const userController = {
 
     res.render('users/login')
   },
-  processLogin: (req, res) =>{
+  processLogin: async (req, res) =>{
     console.log(req.body);
     let {email, password, recordarDatos} = req.body
 
@@ -97,7 +97,13 @@ const userController = {
       res.cookie('user', email)
     }
 
-    let userToLogIn = users.find( user =>  user.email == email)
+    let userToLogIn = await db.Usuario.findOne({
+      where : {
+        email: req.body.email
+      }
+    });
+
+    console.log(userToLogIn) // Borrar al finalizar todo
 
     if(!userToLogIn){
       req.session.message = 'Usuario no Existe en BBDD'
@@ -108,7 +114,7 @@ const userController = {
 
     if(comparePassword){
       req.session.user = {
-        id: userToLogIn.id,
+        id: userToLogIn.id_usuario,
         email: userToLogIn.email
       } //Tomar estos datos y pintarlos en el Index
     req.session.message =  'usuario logueado' ;
