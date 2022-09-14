@@ -4,13 +4,12 @@
     <!-- DATOS DEL LIBRO-->
     <main class="productDetail">
         <div class ="productDetail-image"> 
-            <img src="../../img/productImages/<%= productoBuscado.portada ? productoBuscado.portada : 'default-image.jpg' %>" alt="<%= productoBuscado.titulo%>">
+            <img src="<%= productoBuscado.portada %>" alt="<%= productoBuscado.titulo%>">
         </div>
         <div class="productDetail-contenedor">
             <div class="productDetail-mainInfo">
                 <h2> <%= productoBuscado.titulo%> </h2>
                 <p><span>AUTOR:</span> <%= productoBuscado.autor%></p>
-                <p><span>EDITORIAL:</span> <%= productoBuscado.editorial%></p>
                 <p><span>AR$</span> <%= productoBuscado.precio%></p>
             </div>
             <div class="productDetail-mainInfo">
@@ -19,9 +18,8 @@
             </div>
             <div class="productDetail-mainInfo">
                 <h2>DETALLES DEL LIBRO </h2>
-                <p><span>NÚMERO DE PÁGINAS:</span><%= productoBuscado.numero_paginas%></p>
+                <p><span>NÚMERO DE PÁGINAS:</span><%= productoBuscado.num_paginas%></p>
                 <p><span>PESO:</span><%= productoBuscado.peso%> GRS</p>
-                <p><span>FORMATO:</span><%= productoBuscado.formato%></p>
                 <p><span>ISBN:</span><%= productoBuscado.isbn%></p>
                 <p><span>IDIOMA:</span><%= productoBuscado.idioma%></p>
             </div>

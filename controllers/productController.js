@@ -8,6 +8,9 @@ const { validationResult } = require('express-validator')
 const dbproducts = path.join(__dirname, "../Database/dbproducts.json");
 const products = JSON.parse(fs.readFileSync(dbproducts, "utf-8"));
 
+// Base de Datos
+const db = require('../db/models')
+
 // Otros campos mapeados
 let allCategories = [];
 let allFormatos = [];
@@ -28,14 +31,16 @@ formatos = formatos.sort();
 
 
 const productController = {
-  getAll: (req, res) => {
-    
-    res.render("products/products", { products });
+  getAll: (req, res) => {    
+    db.Libro.findAll()
+    .then(libros => res.render("products/products", { products: libros }))
   },
   getOne: (req, res) => {
-    let id = req.params.id;
-    let productoBuscado = products.find((product) => product.id == id);
-    res.render("products/productDetail", { productoBuscado });
+    // let id = req.params.id;
+    // let productoBuscado = products.find((product) => product.id == id);
+    // res.render("products/productDetail", { productoBuscado });
+    db.Libro.findByPk(req.params.id)
+    .then( libro => { res.render("products/productDetail", { productoBuscado: libro }) } )
   },
   showForm: (req, res) => {
     res.render("products/createProduct", { categorias, formatos });

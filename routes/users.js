@@ -26,7 +26,7 @@ const upload = multer({ storage: storage })
 // RUTAS
 
 // Renderiza todos los usuarios
-router.get('/',/*authValidator,*/ userController.getAll );
+router.get('/',authValidator, userController.getAll );
 // Renderiza el detalle de un producto
 router.get('/detalle/:id', userController.getOne);
 // Renderiza el formulario para crear un usuario
@@ -39,7 +39,7 @@ router.put('/edit/:id', userController.editUser);
 // Eliminar Producto
 router.delete('/delete/:id', userController.destroyUser);
 // LOGIN de Usuario
-router.get('/login', /*loggedInValidator,*/ userController.showLogin)
+router.get('/login', loggedInValidator, userController.showLogin)
 router.post('/login', userController.processLogin)
 //logOut
 router.get('/logout', userController.logout)
