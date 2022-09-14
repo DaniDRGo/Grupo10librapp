@@ -5,7 +5,7 @@ module.exports = {
     "database": "librapp",
     "host": "127.0.0.1",
     "dialect": "mysql",
-    "port": 8889 // Se debe cambiar según la necesidad al puerto 3306
+    "port": 3306
   },
   "test": {
     "username": "root",

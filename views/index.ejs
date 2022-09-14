@@ -21,11 +21,11 @@
                     <div class="menu-categorias">
                             <ul class="lista-categorias">
                                 <% categorias.forEach(categoria => { %>
-                                    <form action="/category/<%= categoria.id_categoria_libro %> " method="get">
+                                    <form action="/<%= categoria.id_categoria_libro %> " method="get">
                                         <li class="item-categoria"><button class="categoriasBusqueda" type="submit"><%= categoria.nombre_categoria_libro %></button></li>
                                     </form>
                                 <% }) %>
-                                <form action="/category/" method="get">
+                                <form action="/" method="get">
                                     <li class="item-categoria"><button class="categoriasBusqueda" type="submit">Todos</button></li>
                                 </form>
                             </ul>

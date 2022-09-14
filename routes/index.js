@@ -7,7 +7,7 @@ const db = require('../db/models');
 
 // pendiente hacer CRUD de Libros
 
-router.get('/category/:id?', async (req, res)=>{
+router.get('/:id?', async (req, res)=>{
     // console.log(req.params)
     const user = req.session.user
 
