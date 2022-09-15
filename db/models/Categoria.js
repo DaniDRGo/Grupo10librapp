@@ -1,4 +1,4 @@
-const Libro = require("./Libro");
+
 
 module.exports = (sequelize, dataTypes) => {
 

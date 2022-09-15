@@ -1,4 +1,3 @@
-const Categoria = require("./Categoria");
 
 module.exports = (sequelize, dataTypes) => {
 
@@ -62,9 +61,6 @@ module.exports = (sequelize, dataTypes) => {
 
     const Libro = sequelize.define(alias, cols, config);
 
-    // Libro.associate = function( Categoria ){
-
-    // };
 
     return Libro
 }
