@@ -5,10 +5,12 @@ const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const logger = require('morgan');
 const methodOverride = require('method-override');
+const bodyParser = require('body-parser')
+
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const productsRouter = require('./routes/products');
-const apiRouter = require('./routes/usersApi');
+const apiRouter = require('./routes/api/usersApi');
 
 
 var app = express();
@@ -20,6 +22,8 @@ app.set('view engine', 'ejs');
 
 app.use(logger('dev'));
 app.use(express.json());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -33,9 +37,9 @@ app.use(session({
 }));
 
 
+app.use('/api', apiRouter)
 app.use('/users', usersRouter);
 app.use('/products', productsRouter);
-app.use('/api', apiRouter)
 app.use('/', indexRouter);
 
 // catch 404 and forward to error handler
