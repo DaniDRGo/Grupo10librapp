@@ -1,4 +1,4 @@
-
+const { Sequelize } = require(".");
 
 module.exports = (sequelize, dataTypes) => {
 
@@ -19,19 +19,11 @@ module.exports = (sequelize, dataTypes) => {
 
     let config = {
         timestamps: false,
-        // createdAt: 'created_at',
-        // updatedAt: 'updated_at',
-        // deletedAt: false
     }
 
     const Categoria = sequelize.define(alias, cols, config)
 
-    // Categoria.associate = function( model ){
-    //     Categoria.belongsTo( model.Libro, {
-    //         as: 'libros',
-    //         foreingKey: "id_categoria_libro"
-    //     } )
-    // }
-
+    
     return Categoria
 }
+

@@ -4,9 +4,6 @@ const path = require("path");
 const multer = require('multer');
 const { validationResult } = require('express-validator')
 
-// LLamado a el archivo JSON
-const dbproducts = path.join(__dirname, "../Database/dbproducts.json");
-const products = JSON.parse(fs.readFileSync(dbproducts, "utf-8"));
 
 // Base de Datos
 const db = require('../db/models')

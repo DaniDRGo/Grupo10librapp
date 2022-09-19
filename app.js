@@ -10,7 +10,7 @@ const bodyParser = require('body-parser')
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const productsRouter = require('./routes/products');
-const apiRouter = require('./routes/api/usersApi');
+const apiRouter = require('./routes/api/api');
 
 
 var app = express();

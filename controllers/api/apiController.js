@@ -64,8 +64,7 @@ const apiController = {
           error: "No se pudo realizar la petición"
       });
     }
-  },
-  
+  } 
 };
 
 module.exports = apiController;
