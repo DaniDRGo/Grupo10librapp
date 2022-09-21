@@ -48,6 +48,14 @@ La edad promedio para adentranse en la lectura es de **6 años**, así, nuestro 
 Se buscará tener segmentos infantiles, juveniles, de crítica, políticos , gatronónicos , etc ... para nunca limitar el alcance del conocimento pero si, aségurando que la interacción sea prolija y con motivos aire de conocimiento contínuo.
 ___
 
+### Algunas cosas a tener en cuenta
+Se trabajaron las validaciones de formularios de dos maneras:
+
+Del lado del Front , se buscó validar toda la experiencia para la parte de Usuarios
+
+Del lado del Back , se buscó validar la experiencia para la creación de libros
+___
+
 ### Integrantes
 **Daniel**, tecnico de laboratorio, argentino y con las ganas de trabajar.
 
