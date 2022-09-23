@@ -30,7 +30,7 @@ router.get('/',authValidator, userController.getAll );
 // Renderiza el detalle de un producto
 router.get('/detalle/:id', userController.getOne);
 // Renderiza el formulario para crear un usuario
-router.get('/create', /*loggedInValidator,*/ userController.showForm);
+router.get('/create', userController.showForm);
 // Crea un Producto a partir del formulario cargado
 router.post('/create', upload.single('avatar') ,userController.createUser);
 // Editar Producto

@@ -64,7 +64,23 @@ const apiController = {
           error: "No se pudo realizar la petición"
       });
     }
-  } 
+  },
+  getAllCategories: (req, res) => {
+    try {
+      db.Categoria.findAll().then((categories) =>
+        res.status(200).json({
+            count: categories.length,
+            method: "GET",
+            url: "/api/categories",
+            categorias: categories
+        })
+      );
+    } catch (error) {
+      res.status(500).json({
+          error: "No se pudo realizar la petición"
+      });
+    }
+  }, 
 };
 
 module.exports = apiController;

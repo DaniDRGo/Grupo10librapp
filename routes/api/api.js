@@ -15,5 +15,7 @@ router.get('/users/detalle/:id', cors(), apiController.getOneUser);
 router.get('/books', cors(), apiController.getAllBooks );
 // // Renderiza el detalle de un Libro
 router.get('/books/detalle/:id', cors(), apiController.getOneBook);
+// Renderiza todos las Categorias
+router.get('/categories', cors(), apiController.getAllCategories );
 
 module.exports = router;

@@ -39,10 +39,10 @@ const validarFormulario = (e) => {
   }
 };
 
-formulario.addEventListener("submit", (e) => {
-  console.log("formulario enviado");
-  e.preventDefault();
-});
+// formulario.addEventListener("submit", (e) => {
+//   console.log("formulario enviado");
+//   e.preventDefault();
+// });
 
 inputs.forEach((input) => {
   input.addEventListener("keyup", validarFormulario);
