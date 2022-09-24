@@ -1,18 +1,19 @@
-const { Sequelize } = require(".");
+const { DataTypes } = require('sequelize');
 
-module.exports = (sequelize, dataTypes) => {
+
+module.exports = (mySqlConnection) => {
 
     let alias = 'Categoria';
 
     let cols = {
         id_categoria_libro: {
-            type: dataTypes.INTEGER(11),
+            type: DataTypes.INTEGER(11),
             primaryKey: true,
             allowNull: false,
             autoIncrement: true
         },
         nombre_categoria_libro: {
-            type: dataTypes.STRING,
+            type: DataTypes.STRING,
             allowNull: false
         }
     }
@@ -21,7 +22,7 @@ module.exports = (sequelize, dataTypes) => {
         timestamps: false,
     }
 
-    const Categoria = sequelize.define(alias, cols, config)
+    const Categoria = mySqlConnection.define(alias, cols, config)
 
     
     return Categoria

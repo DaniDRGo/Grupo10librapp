@@ -1,65 +1,63 @@
+const { DataTypes } = require('sequelize');
 
-module.exports = (sequelize, dataTypes) => {
+module.exports = (mySqlConnection) => {
 
     let alias = 'Libro';
 
     let cols = {
         id_libro: {
-            type: dataTypes.INTEGER(11),
+            type: DataTypes.INTEGER(11),
             primaryKey: true,
             allowNull: false,
             autoIncrement: true
         },
         titulo: {
-            type: dataTypes.STRING,
+            type: DataTypes.STRING,
             allowNull: false
         },
         autor: {
-            type: dataTypes.STRING,
+            type: DataTypes.STRING,
             allowNull: false
         },
         portada: {
-            type: dataTypes.STRING,
+            type: DataTypes.STRING,
             allowNull: false
         },
         descripcion: {
-            type: dataTypes.STRING,
+            type: DataTypes.STRING,
             allowNull: false
         },
         isbn: {
-            type: dataTypes.STRING,
+            type: DataTypes.STRING,
             allowNull: false
         },
         num_paginas: {
-            type: dataTypes.INTEGER(11),
+            type: DataTypes.INTEGER(11),
             allowNull: false
         },
         precio: {
-            type: dataTypes.DECIMAL,
+            type: DataTypes.DECIMAL,
             allowNull: false
         },
         peso: {
-            type: dataTypes.DECIMAL,
+            type: DataTypes.DECIMAL,
             allowNull: false
         },
         idioma: {
-            type: dataTypes.STRING,
+            type: DataTypes.STRING,
             allowNull: false
         },
         id_categoria_libro: {
-            type: dataTypes.INTEGER(11),
+            type: DataTypes.INTEGER(11),
             allowNull: false
         }
     }
 
     let config = {
         timestamps: false,
-        // createdAt: 'created_at',
-        // updatedAt: 'updated_at',
-        // deletedAt: false
     }
 
-    const Libro = sequelize.define(alias, cols, config);
+    const Libro = mySqlConnection.define(alias, cols, config);
 
 
     return Libro

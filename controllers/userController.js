@@ -1,22 +1,23 @@
-const fs = require("fs");
-const path = require("path");
-const multer = require("multer");
 const bcrypt = require("bcrypt");
-const db = require('../db/models');
 
 
-// LLamado a el archivo JSON
-// const dbusers = path.join(__dirname, "../Database/dbusers.json");
-// const users = JSON.parse(fs.readFileSync(dbusers, "utf-8"));
+const sequelize = require("../handlers/sequelize");
 
 const userController = {
   getAll: (req, res) => {
-    db.Usuario.findAll()
-      .then(users => res.render("users/users", { users }))
+    sequelize.findAll("Usuario").then((users) => {
+      res.render("users/users", { users });
+    });  
   },
   getOne: (req, res) => {
-    db.Usuario.findByPk(req.params.id)
-      .then( user => { res.render("users/userDetail", { usuarioBuscado: user }) } )
+    sequelize.findAll('Usuario', {
+      where: {
+        id_usuario: req.params.id
+      }
+    })
+    .then( user => {
+      res.render("users/userDetail", { usuarioBuscado: user })
+    } )  
   },
   showForm: (req, res) => {
     res.render("users/register");
@@ -28,7 +29,7 @@ const userController = {
     password = bcrypt.hashSync(password, 10);
     let tyc = req.body.tc ? true : false;
 
-    db.Usuario.create({
+    sequelize.create('Usuario', {
       nombre: req.body.nombre,
       apellido: req.body.apellido,
       avatar,
@@ -44,7 +45,7 @@ const userController = {
       password,
       tyc,
       id_rol: 2 // este dato solo se cambia desde BBDD , hay que hacer una función para poderlo editar desde la app
-    });
+    } );
     res.redirect("/users");
   },
   showFormEdit: (req, res) => {
