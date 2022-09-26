@@ -2,10 +2,10 @@
     <body>
         <%- include('../partials/header') %>
         <main class="formulario-registro">
+            <% if (locals.message) { %>
+                <p><%= message %> </p>
+            <% } %>
             <div class="login-form">
-                <% if (locals.message) { %>
-                    <p><%= message.msg %> </p>
-                <% } %>
                 <form action="/users/login" id="form" method="post" class="form">
                     <div class="input">
                         <h3 class="subtitulo-registro">Ingresa tus datos</h3>

@@ -134,7 +134,7 @@ const userController = {
     res.render("users/login");
   },
   processLogin: async (req, res) => {
-    // console.log(req.body);
+
     let { email, password, recordarDatos } = req.body;
 
     if (recordarDatos) {
@@ -147,30 +147,33 @@ const userController = {
       },
     });
 
-    console.log(userToLogIn[0], "%ceste es", "color=red"); // Borrar al finalizar todo
 
-    if (userToLogIn.length == 0) {
-      req.session.message = { msg: "Usuario no Existe en BBDD" };
+    if (!userToLogIn[0]) {
+      req.session.message = "Usuario no Existe en BBDD" ;
+      console.log('Usuario no existe en BBD')
       res.render("users/login", { message: req.session.message });
     }
 
-    let comparePassword = bcrypt.compareSync(password, userToLogIn[0].password);
-
-    if (comparePassword) {
-      req.session.user = {
-        id: userToLogIn[0].id_usuario,
-        email: userToLogIn[0].email,
-      }; //Tomar estos datos y pintarlos en el Index
-      req.session.message = "usuario logueado";
-      res.redirect("/");
-    } else {
-      req.session.message = "email o password inválido";
-      console.log(req.session.message);
-      res.render("users/login", {
-        userEmail: email,
-        message: req.session.message,
-      });
+    try {
+      let comparePassword = bcrypt.compareSync(password, userToLogIn[0].password);      
+      if (comparePassword) {
+        req.session.user = {
+          id: userToLogIn[0].id_usuario,
+          email: userToLogIn[0].email,
+        }; //Tomar estos datos y pintarlos en el Index
+        req.session.message = "usuario logueado";
+        res.redirect("/");
+      } else {
+        req.session.message = "email o password inválido";
+        res.render("users/login", {
+          userEmail: email,
+          message: req.session.message,
+        });
+      }
+    } catch (error) {
+      console.log(error)
     }
+
   },
   logout: (req, res) => {
     req.session.destroy();
