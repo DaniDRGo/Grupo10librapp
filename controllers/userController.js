@@ -4,19 +4,40 @@ const sequelize = require("../handlers/sequelize");
 
 const userController = {
   getAll: (req, res) => {
-    sequelize.findAll("Usuario", { attributes: ['id_usuario', 'nombre', 'apellido', 'id_rol'] }).then((users) => {
-      res.render("users/users", { users });
-    });
+    sequelize
+      .findAll("Usuario", {
+        attributes: ["id_usuario", "nombre", "apellido", "id_rol"],
+      })
+      .then((users) => {
+        res.render("users/users", { users });
+      });
   },
   getOne: (req, res) => {
     sequelize
       .findAll("Usuario", {
+        attributes: [
+          "nombre",
+          "apellido",
+          "avatar",
+          "fecha_nacimiento",
+          "email",
+          "telefono",
+          "pais",
+          "provincia",
+          "localidad",
+          "direccion",
+          "piso",
+          "cod_postal",
+          "password",
+          "tyc",
+          "id_rol",
+        ],
         where: {
           id_usuario: req.params.id,
         },
       })
       .then((user) => {
-        res.render("users/userDetail", { usuarioBuscado: user });
+        res.render("users/userDetail", { usuarioBuscado: user[0] });
       });
   },
   showForm: (req, res) => {
@@ -48,12 +69,32 @@ const userController = {
     res.redirect("/users");
   },
   showFormEdit: (req, res) => {
-    db.Usuario.findByPk(req.params.id).then((user) =>
-      res.render("users/editUser", { userToEdit: user })
-    );
+    sequelize.findAll('Usuario', {
+      attributes: [
+        "id_usuario",
+        "nombre",
+        "apellido",
+        "fecha_nacimiento",
+        "email",
+        "telefono",
+        "pais",
+        "provincia",
+        "localidad",
+        "direccion",
+        "piso",
+        "cod_postal"
+      ],
+      where: {
+        id_usuario: req.params.id
+      }
+    })
+    .then( user => {
+      res.render("users/editUser", { userToEdit: user[0] })
+    } )
   },
   editUser: (req, res) => {
-    db.Usuario.update(
+    sequelize.update(
+      "Usuario",
       {
         nombre: req.body.nombre,
         apellido: req.body.apellido,
@@ -76,7 +117,7 @@ const userController = {
     res.redirect("/users");
   },
   destroyUser: (req, res) => {
-    db.Usuario.destroy({
+    sequelize.destroy('Usuario',{
       where: {
         id_usuario: req.params.id,
       },
@@ -106,10 +147,10 @@ const userController = {
       },
     });
 
-    console.log(userToLogIn[0],'%ceste es','color=red'); // Borrar al finalizar todo
+    console.log(userToLogIn[0], "%ceste es", "color=red"); // Borrar al finalizar todo
 
     if (userToLogIn.length == 0) {
-      req.session.message = {msg: "Usuario no Existe en BBDD"};
+      req.session.message = { msg: "Usuario no Existe en BBDD" };
       res.render("users/login", { message: req.session.message });
     }
 
@@ -124,7 +165,7 @@ const userController = {
       res.redirect("/");
     } else {
       req.session.message = "email o password inválido";
-      console.log(req.session.message)
+      console.log(req.session.message);
       res.render("users/login", {
         userEmail: email,
         message: req.session.message,
