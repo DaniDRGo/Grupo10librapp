@@ -1,10 +1,8 @@
-
-.contenedor, main{
+.contenedor,
+main {
   width: 100%;
   /* margin: 0 auto; */
 }
-
-
 
 .selector {
   width: 100%;
@@ -19,7 +17,7 @@
   margin: 10px 0;
 }
 
-.no-slider{
+.no-slider {
   display: none;
 }
 
@@ -86,12 +84,11 @@
 
 /* Fin Slider ******************************************** */
 
-
 .principal {
   padding: 20px 10px;
 }
 
-.medium{
+.medium {
   display: none;
 }
 
@@ -162,7 +159,7 @@
 }
 
 @media (min-width: 461px) {
-  .selector{
+  .selector {
     display: none;
   }
 
@@ -171,7 +168,7 @@
     background-color: aquamarine;
   }
 
-  .lista-categorias{
+  .lista-categorias {
     background-color: blueviolet;
     display: flex;
     flex-wrap: wrap;
@@ -181,21 +178,27 @@
     gap: 10px 10px;
   }
 
-  .item-categoria{
+  .categoriasBusqueda {
     min-width: 10%;
     padding: 10px;
     background-color: beige;
     text-align: center;
     border-radius: 20px;
+    border-color: transparent;
+    cursor: pointer;
+  }
+
+  .categoriasBusqueda:hover{
+    background-color: rgb(158, 158, 158);
   }
 
   .slider {
     display: none;
   }
-  
-  .no-slider{
+
+  .no-slider {
     display: flex;
-    padding: 15px;;
+    padding: 15px;
     flex-wrap: wrap;
     gap: 60px 0;
   }
@@ -204,35 +207,35 @@
     width: 33.33%;
     display: flex;
     justify-content: center;
-}
+  }
 
-.contenedorOferta{
-  width: 80%;
-  position: relative;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  background-color: #000000;
-}
+  .contenedorOferta {
+    width: 80%;
+    position: relative;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: #000000;
+  }
 
-.contenedorOferta img{
-  width: 100%;
-}
+  .contenedorOferta img {
+    width: 100%;
+  }
 
   .etiquetaDescuento {
     left: 0;
   }
 
-  .small{
+  .small {
     display: none;
   }
 
-  .medium{
+  .medium {
     display: block;
     width: 100%;
   }
 
-  .book-container{
+  .book-container {
     display: flex;
     padding: 15px;
     flex-wrap: wrap;
@@ -241,57 +244,50 @@
 
   .book {
     width: 50%;
-  } 
+  }
 
-  
   .book-info {
     bottom: 0;
     padding: 0 25px;
     width: 80%;
   }
-  
+
   .book-title {
     width: 100%;
     text-align: center;
   }
-  
+
   .book-title h5 {
     font-size: 1.5rem;
   }
-  
+
   .book-price {
     width: 50%;
   }
-  
+
   .icon-agregar {
     width: 50%;
     text-align: center;
     margin-left: 0;
   }
-  
+
   .book-price p {
     text-align: center;
   }
-  
 }
 
 @media (min-width: 881px) {
-
-  
   .enOferta {
     width: 20%;
+  }
 
-}
-  
   .book {
     width: 33.333%;
-  } 
+  }
 }
 
 @media (min-width: 1024px) {
-  
-
   .book {
     width: 25%;
-  } 
+  }
 }

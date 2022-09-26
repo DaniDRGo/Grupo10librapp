@@ -1,34 +1,38 @@
 const sequelize = require("../handlers/sequelize");
 
+const { validationResult } = require('express-validator')
+
 const productController = {
   getAll: (req, res) => {
-    sequelize.findAll("Libro", { attributes: [ 'id_libro' ] }).then((libros) => {
+    sequelize.findAll("Libro", { attributes: [ 'id_libro', 'titulo'] }).then((libros) => {
       res.render("products/products", { products: libros });
     });
   },
   getOne: (req, res) => {
-    sequelize
-      .findAll("libro", {
+    sequelize.findAll("Libro", {
         include: [
           {
             model: "Categoria",
           },
         ],
+        where: {
+          id_libro: req.params.id
+        }
       })
-      .then((libros) => {
-        res.json(libros);
+      .then((libro) => {
+        res.render("products/productDetail", { productoBuscado: libro[0] });
       })
       .catch((err) => {
         console.log(err);
       });
   },
   showForm: async (req, res) => {
-    const categorias = await sequelize.findAll("Categoria");
+    const categorias = await sequelize.findAll("Categoria", {attributes: [ 'id_categoria_libro', 'nombre_categoria_libro'] });
     res.render("products/createProduct", { categorias });
   },
   createBook: async (req, res) => {
     let errors = validationResult(req);
-    const categorias = await sequelize.findAll("Categoria");
+    const categorias = await sequelize.findAll("Categoria", {attributes: [ 'id_categoria_libro', 'nombre_categoria_libro'] });
     if (errors.isEmpty()) {
       sequelize.create("Libro", {
         titulo: req.body.titulo,
@@ -52,34 +56,31 @@ const productController = {
     }
   },
   showFormEdit: async (req, res) => {
-    const categorias = await sequelize.findAll("Categoria");
-
-    // const idLibro = await db.Libro.findByPk(req.params.id);
-
-    // const categoriaLibro = await db.Categoria.findAll({
-    //   where: {
-    //     id_categoria_libro: idLibro.id_categoria_libro,
-    //   },
-    // });
-    // db.Libro.findByPk(req.params.id).then((book) =>
-    //   res.render("products/editProduct", {
-    //     itemToEdit: book,
-    //     categorias,
-    //     categoriaLibro: categoriaLibro[0],
-    //   })
-    // );
+    const categorias = await sequelize.findAll("Categoria", {attributes: [ 'id_categoria_libro', 'nombre_categoria_libro'] });
 
     sequelize.findAll("Libro", {
+      attributes: [
+        "id_libro",
+        "titulo",
+        "autor",
+        "portada",
+        "descripcion",
+        "isbn",
+        "num_paginas",
+        "precio",
+        "peso",
+        "idioma",
+      ] ,
       where: {
-        id_libro: req.param.id,
+        id_libro: req.params.id,
       },
       include: [{ model: "Categoria" }],
     })
     .then( libro => {
       res.render("products/editProduct", {
-            itemToEdit: libro,
+            itemToEdit: libro[0],
             categorias,
-            // categoriaLibro: categoriaLibro[0],
+            categoriaLibro: libro[0].Categorium,
           })
     } )
   },

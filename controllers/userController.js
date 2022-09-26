@@ -1,35 +1,34 @@
 const bcrypt = require("bcrypt");
 
-
 const sequelize = require("../handlers/sequelize");
 
 const userController = {
   getAll: (req, res) => {
-    sequelize.findAll("Usuario").then((users) => {
+    sequelize.findAll("Usuario", { attributes: ['id_usuario', 'nombre', 'apellido', 'id_rol'] }).then((users) => {
       res.render("users/users", { users });
-    });  
+    });
   },
   getOne: (req, res) => {
-    sequelize.findAll('Usuario', {
-      where: {
-        id_usuario: req.params.id
-      }
-    })
-    .then( user => {
-      res.render("users/userDetail", { usuarioBuscado: user })
-    } )  
+    sequelize
+      .findAll("Usuario", {
+        where: {
+          id_usuario: req.params.id,
+        },
+      })
+      .then((user) => {
+        res.render("users/userDetail", { usuarioBuscado: user });
+      });
   },
   showForm: (req, res) => {
     res.render("users/register");
   },
   createUser: (req, res) => {
-
-    let avatar = req.file.filename
-    let password = req.body.password
+    let avatar = req.file.filename;
+    let password = req.body.password;
     password = bcrypt.hashSync(password, 10);
     let tyc = req.body.tc ? true : false;
 
-    sequelize.create('Usuario', {
+    sequelize.create("Usuario", {
       nombre: req.body.nombre,
       apellido: req.body.apellido,
       avatar,
@@ -44,93 +43,98 @@ const userController = {
       cod_postal: req.body.cp,
       password,
       tyc,
-      id_rol: 2 // este dato solo se cambia desde BBDD , hay que hacer una función para poderlo editar desde la app
-    } );
+      id_rol: 2, // este dato solo se cambia desde BBDD , hay que hacer una función para poderlo editar desde la app
+    });
     res.redirect("/users");
   },
   showFormEdit: (req, res) => {
-    db.Usuario.findByPk(req.params.id)
-      .then( user => res.render("users/editUser", { userToEdit: user }) )
+    db.Usuario.findByPk(req.params.id).then((user) =>
+      res.render("users/editUser", { userToEdit: user })
+    );
   },
   editUser: (req, res) => {
-        
-    db.Usuario.update({
-      nombre: req.body.nombre,
-      apellido: req.body.apellido,
-      fecha_nacimiento: req.body.fecha,
-      email: req.body.email,
-      telefono: req.body.phone,
-      pais: req.body.pais,
-      provincia: req.body.provincia,
-      localidad: req.body.localidad,
-      direccion: req.body.direccion,
-      piso: req.body.piso,
-      cod_postal: req.body.cp
-    },{
-      where: {
-        id_usuario: req.params.id
+    db.Usuario.update(
+      {
+        nombre: req.body.nombre,
+        apellido: req.body.apellido,
+        fecha_nacimiento: req.body.fecha,
+        email: req.body.email,
+        telefono: req.body.phone,
+        pais: req.body.pais,
+        provincia: req.body.provincia,
+        localidad: req.body.localidad,
+        direccion: req.body.direccion,
+        piso: req.body.piso,
+        cod_postal: req.body.cp,
+      },
+      {
+        where: {
+          id_usuario: req.params.id,
+        },
       }
-    });
+    );
     res.redirect("/users");
   },
   destroyUser: (req, res) => {
     db.Usuario.destroy({
       where: {
-        id_usuario: req.params.id 
-      }
+        id_usuario: req.params.id,
+      },
     });
 
     res.redirect("/users");
   },
   showLogin: (req, res) => {
     let userData = req.cookies.user;
-    if(userData){
-      res.render('users/login', { userData })
+    if (userData) {
+      res.render("users/login", { userData });
     }
 
-    res.render('users/login')
+    res.render("users/login");
   },
-  processLogin: async (req, res) =>{
-    console.log(req.body);
-    let {email, password, recordarDatos} = req.body
+  processLogin: async (req, res) => {
+    // console.log(req.body);
+    let { email, password, recordarDatos } = req.body;
 
-    if(recordarDatos){
-      res.cookie('user', email)
+    if (recordarDatos) {
+      res.cookie("user", email);
     }
 
-    let userToLogIn = await db.Usuario.findOne({
-      where : {
-        email: req.body.email
-      }
+    let userToLogIn = await sequelize.findAll("Usuario", {
+      where: {
+        email: req.body.email,
+      },
     });
 
-    console.log(userToLogIn) // Borrar al finalizar todo
+    console.log(userToLogIn[0],'%ceste es','color=red'); // Borrar al finalizar todo
 
-    if(!userToLogIn){
-      req.session.message = 'Usuario no Existe en BBDD'
-      res.render('users/login', { message: req.session.message})
+    if (userToLogIn.length == 0) {
+      req.session.message = {msg: "Usuario no Existe en BBDD"};
+      res.render("users/login", { message: req.session.message });
     }
 
-    let comparePassword = bcrypt.compareSync(password,userToLogIn.password)
+    let comparePassword = bcrypt.compareSync(password, userToLogIn[0].password);
 
-    if(comparePassword){
+    if (comparePassword) {
       req.session.user = {
-        id: userToLogIn.id_usuario,
-        email: userToLogIn.email
-      } //Tomar estos datos y pintarlos en el Index
-    req.session.message =  'usuario logueado' ;
-    res.redirect('/')
-    }else{
-      req.session.message =  'email o password inválido' 
-      res.render('users/login', { userEmail: email , message: req.session.message})
+        id: userToLogIn[0].id_usuario,
+        email: userToLogIn[0].email,
+      }; //Tomar estos datos y pintarlos en el Index
+      req.session.message = "usuario logueado";
+      res.redirect("/");
+    } else {
+      req.session.message = "email o password inválido";
+      console.log(req.session.message)
+      res.render("users/login", {
+        userEmail: email,
+        message: req.session.message,
+      });
     }
   },
   logout: (req, res) => {
     req.session.destroy();
-    return res.redirect('login')
-  }
+    return res.redirect("login");
+  },
 };
 
 module.exports = userController;
-
-
