@@ -39,7 +39,8 @@
                         </div>
                         <div class="input image">
                             <label for="portada" class="form-titles">Seleccioná una Imagen de Portada</label>
-                            <input type="file" name="portada" id="portada" accept=".png, .jpg" >
+                            <!-- <input type="file" name="portada" id="portada" accept=".png, .jpg" > -->
+                            <input type="text" name="portada" id="portada" placeholder="URL de la Imagen">
                             <% if (locals.errors && errors.portada) { %>
                                 <div class="error-message">
                                     <%= errors.portada.msg %> 
@@ -74,10 +75,10 @@
                         </div>
                         <div class="input">
                             <select name="categoria" id="categoria">
-                                <option value="general">Categoria del Libro</option>
-                                <% for( let index = 0; index < categorias.length; index++ ) { %>
-                                    <option value="<%= categorias[index]  %>" ><%= categorias[index]  %></option>
-                                <% } %>
+                                <option value="6">Categoria del Libro</option>
+                                <% categorias.forEach(categoria => { %>
+                                    <option value="<%= categoria.id_categoria_libro  %>" ><%= categoria.nombre_categoria_libro  %></option>
+                                <% }) %>
                             </select>
                         </div>
                         <div class="input">
@@ -95,14 +96,6 @@
                         </div>
                     </div>
                     <div class="segunda-seccion">
-                        <div class="input">
-                            <select name="formato" id="formato">
-                                <option value="Male">Dirigido a:</option>
-                                <% for( let index = 0; index < formatos.length; index++ ) { %>
-                                    <option value="<%= formatos[index]  %>" ><%= formatos[index]  %></option>
-                                <% } %>
-                            </select>
-                        </div>
                         <div class="input">
                             <input type="number" 
                                     name="precio" 

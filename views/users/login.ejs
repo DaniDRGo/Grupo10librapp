@@ -2,8 +2,11 @@
     <body>
         <%- include('../partials/header') %>
         <main class="formulario-registro">
+            <% if (locals.message) { %>
+                <p><%= message %> </p>
+            <% } %>
             <div class="login-form">
-                <form action="/users/login" method="post" class="form">
+                <form action="/users/login" id="form" method="post" class="form">
                     <div class="input">
                         <h3 class="subtitulo-registro">Ingresa tus datos</h3>
                     </div>
@@ -14,12 +17,14 @@
                         id="email" 
                         placeholder="email" 
                         required
-                        value= "<%= locals.userData && userData ? userData : null  %> "
+                        value= "<%= locals.user && user ? users : null  %> "
                         >
+                        <i class="email fa"></i>
                     </div>
                     <div class="input">
                         <!-- <label for="password">Contraseña</label> -->
                         <input type="password" name="password" id="password" placeholder="Contraseña" required>
+                        <i class="password fa"></i>
                     </div>
                     <div class="form-confirm">
                         <div class="input">
@@ -42,5 +47,6 @@
         </main>
         <%- include('../partials/footer') %>
         <script src="../js/index.js"></script>
+        <script src="../js/formulario.js"></script>
     </body>
 </html>

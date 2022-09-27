@@ -33,19 +33,21 @@ const formsValidations = [
     .notEmpty()
     .withMessage('Debes completar este campo con la DESCRIPCIÓN del Libro'),
   check('portada')
-    .custom((value, { req })=>{
-      let file = req.file;
-      let acceptedExtension = ['.jpg', '.png', '.gif'];
-      if(!file){
-        throw new Error('Debes cargar una IMAGEN DE PORTADA')
-      }else{        
-        let fileExtension = path.extname(file.originalname);        
-        if(!acceptedExtension.includes(fileExtension)){
-          throw new Error(`Debes cargar un archivo con EXTENSION válida, las cuales son: ${ acceptedExtension.join(', ') } `)
-        }
-      }
-      return true;
-    }),
+    // .custom((value, { req })=>{
+    //   let file = req.file;
+    //   let acceptedExtension = ['.jpg', '.png', '.gif'];
+    //   if(!file){
+    //     throw new Error('Debes cargar una IMAGEN DE PORTADA')
+    //   }else{        
+    //     let fileExtension = path.extname(file.originalname);        
+    //     if(!acceptedExtension.includes(fileExtension)){
+    //       throw new Error(`Debes cargar un archivo con EXTENSION válida, las cuales son: ${ acceptedExtension.join(', ') } `)
+    //     }
+    //   }
+    //   return true;
+    // }
+    .notEmpty()
+    .withMessage('Debes completar este campo con la URL de la imagen del Libro'),
   check('autor')
     .notEmpty()
     .withMessage('Debes completar este campo con el NOMBRE DEL AUTOR del Libro'),

@@ -9,14 +9,13 @@
                 <div class="itemList">
                     <div class="productItem">
                         <p><%= index + 1 %></p>
-                        <!-- <a  href="/products/detalle/<%= product.id%>"><%= product.id%></a> -->
-                        <a  href="/products/detalle/<%= product.id%>"><span class="productName"><%= product.titulo%></span></a>                        
+                        <a  href="/products/detalle/<%= product.id_libro%>"><span class="productName"><%= product.titulo%></span></a>                        
                     </div>
                     <div class="icon-productItem">
-                        <a href="products/edit/<%= product.id%>"><i class="fas fa-edit"></i></a>
+                        <a href="products/edit/<%= product.id_libro%>"><i class="fas fa-edit"></i></a>
                     </div>
                     <div class="icon-productItem">
-                        <form action="/products/delete/<%= product.id%>?_method=DELETE" method="post">
+                        <form action="/products/delete/<%= product.id_libro%>?_method=DELETE" method="post">
                             <button class="productDelete" type="submit" ><i class="fas fa-trash"></i></button>                            
                         </form>
                     </div>

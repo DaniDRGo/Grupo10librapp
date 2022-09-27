@@ -1,84 +1,83 @@
-module.exports = (sequelize, dataTypes) => {
+const { DataTypes } = require('sequelize');
+
+module.exports = (mySqlConnection) => {
 
     let alias = 'Usuario';
 
     let cols = {
         id_usuario: {
-            type: dataTypes.INTEGER(11),
+            type: DataTypes.INTEGER(11),
             primaryKey: true,
             allowNull: false,
             autoIncrement: true
         },
         nombre: {
-            type: dataTypes.STRING,
+            type: DataTypes.STRING,
             allowNull: false
         },
         apellido: {
-            type: dataTypes.STRING,
+            type: DataTypes.STRING,
             allowNull: false
         },
         avatar: {
-            type: dataTypes.STRING,
+            type: DataTypes.STRING,
             allowNull: false
         },
         fecha_nacimiento: {
-            type: dataTypes.DATE,
+            type: DataTypes.DATE,
             allowNull: false
         },
         email: {
-            type: dataTypes.STRING,
+            type: DataTypes.STRING,
             allowNull: false
         },
         telefono: {
-            type: dataTypes.STRING,
+            type: DataTypes.STRING,
             allowNull: false
         },
         pais: {
-            type: dataTypes.STRING,
+            type: DataTypes.STRING,
             allowNull: false
         },
         provincia: {
-            type: dataTypes.STRING,
+            type: DataTypes.STRING,
             allowNull: false
         },
         localidad: {
-            type: dataTypes.STRING,
+            type: DataTypes.STRING,
             allowNull: false
         },
         direccion: {
-            type: dataTypes.STRING,
+            type: DataTypes.STRING,
             allowNull: false
         },
         piso: {
-            type: dataTypes.STRING,
+            type: DataTypes.STRING,
             allowNull: false
         },
         cod_postal: {
-            type: dataTypes.STRING,
+            type: DataTypes.STRING,
             allowNull: false
         },
         password: {
-            type: dataTypes.STRING,
+            type: DataTypes.STRING,
             allowNull: false
         },
         tyc: {
-            type: dataTypes.BOOLEAN,
+            type: DataTypes.BOOLEAN,
             allowNull: false
         },
         id_rol: {
-            type: dataTypes.INTEGER(11),
+            type: DataTypes.INTEGER(11),
             allowNull: false
         }
     }
 
     let config = {
-        timestamps: false,
-        // createdAt: 'created_at',
-        // updatedAt: 'updated_at',
-        // deletedAt: false
+        timestamps: false
     }
 
-    const Usuario = sequelize.define(alias, cols, config)
+    const Usuario = mySqlConnection.define(alias, cols, config)
 
     return Usuario
 }

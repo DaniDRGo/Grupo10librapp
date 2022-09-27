@@ -7,7 +7,7 @@
                 <h1>Editar Libro <%= itemToEdit.id %> </h1>
             </section>
             <div class="register-form">
-                <form class="form-seccion"   action="/products/edit/<%= itemToEdit.id %>?_method=PUT" method="post">
+                <form class="form-seccion"   action="/products/edit/<%= itemToEdit.id_libro %>?_method=PUT" method="post">
                     <div class="primera-seccion">
                         <div class="input">
                             <h3 class="subtitulo-registro">Información del Libro</h3>
@@ -33,29 +33,20 @@
                             <input type="text" name="isbn" id="isbn" placeholder="isbn" value="<%= itemToEdit.isbn %>"  required>
                         </div>
                         <div class="input">
-                            <label for="categoria">Categoria: (<%= itemToEdit.categoria  %>) </label>
+                            <label for="categoria">Categoria: (<%= categoriaLibro.nombre_categoria_libro %>) </label>
                             <select name="categoria" id="categoria">
-                                <option value="general">Categoria del Libro</option>
-                                <% for( let index = 0; index < categorias.length; index++ ) { %>
-                                    <option value="<%= categorias[index]  %>" ><%= categorias[index]  %></option>
-                                <% } %>
+                                <option value="6">Categoria del Libro</option>
+                                <% categorias.forEach(categoria => { %>
+                                    <option value="<%= categoria.id_categoria_libro  %>" ><%= categoria.nombre_categoria_libro  %></option>
+                                <% }) %>
                             </select>
                         </div>
                         <div class="input">
                             <label for="numero_paginas"> Número de Páginas:</label>
-                            <input type="number" name="numero_paginas" id="numero_paginas" placeholder=" # Paginas" value=<%= itemToEdit.numero_paginas %> required>
+                            <input type="number" name="numero_paginas" id="numero_paginas" placeholder=" # Paginas" value=<%= itemToEdit.num_paginas %> required>
                         </div>
                     </div>
                     <div class="segunda-seccion">
-                        <div class="input">
-                            <label for="formato">Formato: (<%= itemToEdit.formato  %>)</label>
-                            <select name="formato" id="formato">
-                                <option value="Male">Dirigido a:</option>
-                                <% for( let index = 0; index < formatos.length; index++ ) { %>
-                                    <option value="<%= formatos[index]  %>" ><%= formatos[index]  %></option>
-                                <% } %>
-                            </select>
-                        </div>
                         <div class="input">
                             <label for="precio">Precio:</label>
                             <input type="number" name="precio" id="precio" placeholder=" Precio" value=<%= itemToEdit.precio %> required>
