@@ -22,10 +22,10 @@ const userController = {
     res.render("users/register");
   },
   createUser: (req, res) => {
-
+   
     let avatar = req.file.filename
     let password = req.body.password
-    password = bcrypt.hashSync(password, 10);
+    password = bcrypt.hashSync(password, 10);   
     let tyc = req.body.tc ? true : false;
 
     db.Usuario.create({
@@ -75,11 +75,15 @@ const userController = {
     res.redirect("/users");
   },
   destroyUser: (req, res) => {
-    let idBuscado = req.params.id;
+    /*let idBuscado = req.params.id;
     let userUpdatedList = users.filter((user) => user.id != idBuscado);
     fs.writeFileSync("./Database/dbusers.json",JSON.stringify(userUpdatedList), { encoding: "utf-8" });
 
-    res.redirect("/users");
+    res.redirect("/users");*/
+    db.Usuario.destroy({
+      where : {id_usuario : req.params.id}
+    });
+    res.redirect("/users")
   },
   showLogin: (req, res) => {
     let userData = req.cookies.user;
